@@ -1,0 +1,30 @@
+header {
+    height: 70px;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px 0 45px;
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+    align-self: flex-end;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.cart {
+    align-self: center;
+}
+
+.cart i {
+    font-size: 1.5rem;
+}
