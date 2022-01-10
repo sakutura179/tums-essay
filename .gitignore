@@ -12,6 +12,8 @@
 /build
 
 # misc
+/note.txt
+
 .DS_Store
 .env.local
 .env.development.local
