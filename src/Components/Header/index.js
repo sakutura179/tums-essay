@@ -12,7 +12,7 @@ function Header() {
         <div className={clsx(styles.nav)}>
             {/* PC and laptop header */}
             <header className={clsx(styles.pc)}>
-                <span className={clsx(styles.logo)}><Link to={'/'} style={{ color: headerColor }}>SMUT</Link></span>
+                <span className={clsx(styles.logo)}><Link to={'/tums-essay/'} style={{ color: headerColor }}>SMUT</Link></span>
                 <span className={clsx(styles.cart)} style={{ color: headerColor }}><i className='bx bx-cart'></i></span>
             </header>
 
@@ -21,7 +21,7 @@ function Header() {
                 <label htmlFor="nav-mobile-input" className={clsx(styles.navBarsBtn)} style={{ color: headerColor }}>
                     <i className='bx bx-menu'></i>
                 </label>
-                <span className={clsx(styles.logo)}><Link to={'/'} style={{ color: headerColor }}>SMUT</Link></span>
+                <span className={clsx(styles.logo)}><Link to={'/tums-essay/'} style={{ color: headerColor }}>SMUT</Link></span>
                 <span className={clsx(styles.cart)} style={{ color: headerColor }}><i className='bx bx-cart'></i></span>
             </header>
 
@@ -46,9 +46,9 @@ function Header() {
                     <i className={clsx(styles.closeBtn, 'bx bx-x')}></i>
                 </label>
                 <ul className={clsx(styles.navBar)}>
-                    <li className={clsx(styles.navItem)}><Link to={'/shop'}>Shop</Link></li>
-                    <li className={clsx(styles.navItem)}><Link to={'/terms'}>Terms</Link></li>
-                    <li className={clsx(styles.navItem)}><Link to={'/contact'}>Contact</Link></li>
+                    <li className={clsx(styles.navItem)}><Link to={'/tums-essay/shop'}>Shop</Link></li>
+                    <li className={clsx(styles.navItem)}><Link to={'/tums-essay/terms'}>Terms</Link></li>
+                    <li className={clsx(styles.navItem)}><Link to={'/tums-essay/contact'}>Contact</Link></li>
                 </ul>
             </div>
         </div>
