@@ -1,10 +1,17 @@
 .container {
     padding-top: 90px;
     height: 100vh;
-    background-image: url('../../assets/background/bg1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.container.img1 {
+    background-image: url('../../assets/background/bg1.jpg');
+}
+
+.container.img2 {
+    background-image: url('../../assets/background/bg2.jpg');
 }
 
 .navBar {
@@ -35,7 +42,7 @@
 }
 
 .footer p {
-    margin-left: 30px;
+    margin-left: 35px;
 }
 
 .footer p:first-child {
@@ -44,4 +51,26 @@
 
 .footer p a {
     color: #121218;
+}
+
+@media screen and (max-width: 739px) {
+    .footer {
+        font-size: 1.5rem;
+        height: 15vh;
+    }
+
+    .footer p {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+    .footer {
+        font-size: 2rem;
+        height: 20vh;
+    }
+
+    .footer p {
+        margin-left: 20px;
+    }
 }

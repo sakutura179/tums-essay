@@ -1,3 +1,94 @@
-.title {
-    color: red;
+.container {
+    padding-top: 90px;
+}
+
+.colItem {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.colItem .shopAdd {
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, .6);
+}
+
+.colItem .shopAdd p {
+    margin-bottom: 15px;
+}
+
+.colItem .shopAdd p:last-child {
+    margin-bottom: 0;
+}
+
+.colItem .contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.colItem .contactForm label {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.formItem {
+    width: 70%;
+    outline: none;
+    padding: 0 16px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: inherit;
+}
+
+.formItem:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.colItem .contactForm input {
+    height: 40px;
+}
+
+.colItem .contactForm textarea {
+    height: 200px;
+    min-height: 100px;
+    min-width: 70%;
+    max-width: 70%;
+    padding: 16px;
+}
+
+.colItem .contactForm .submitBtn {
+    width: fit-content;
+    padding: 14px 24px;
+    font-size: 1rem;
+    text-transform: capitalize;
+    border: #121218;
+    background-color: #121218;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+    .formItem {
+        width: 100%;
+    }
+
+    .colItem .contactForm textarea {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .formItem,
+    .colItem .contactForm label {
+        z-index: 99;
+    }
 }

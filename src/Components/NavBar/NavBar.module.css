@@ -1,0 +1,23 @@
+.navBar,
+.childNavBar {
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+.childNavBar {
+    margin-left: 1.2rem;
+}
+
+.navBar .navItem,
+.childNavBar .childNavItem {
+    padding: 5px 0;
+}
+
+.navBar .navItem a {
+    color: #121218;
+    text-decoration: none;
+}
+
+.childNavBar .childNavItem a {
+    font-size: 0.7rem;
+}

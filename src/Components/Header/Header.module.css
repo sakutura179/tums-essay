@@ -1,15 +1,26 @@
+.nav {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    background-color: transparent;
+    user-select: none;
+}
+
 header {
     height: 70px;
     width: 100%;
     background-color: transparent;
-    display: flex;
     justify-content: space-between;
-    padding: 0 70px 0 45px;
     position: fixed;
     top: 0;
 }
 
-.logo {
+header.pc {
+    display: flex;
+    padding: 0 70px 0 45px;
+}
+
+header .logo {
     font-size: 2.4rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -17,14 +28,142 @@ header {
     align-self: flex-end;
 }
 
-.logo a {
+header .logo a {
     text-decoration: none;
 }
 
-.cart {
+header .cart {
     align-self: center;
 }
 
-.cart i {
+header .cart i {
     font-size: 1.5rem;
+}
+
+/* Mobile header */
+header.tabletMobile {
+    display: none;
+}
+
+header.tabletMobile .navBarsBtn {
+    align-self: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.navOverlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    cursor: pointer;
+    display: none;
+    animation: fadeIn .35s linear;
+}
+
+/* Overlay keyframe */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Nav mobile list */
+.navMobileList {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    max-width: 100%;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all .35s linear;
+}
+
+.navMobileList .closeBtn {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 27px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.navBar {
+    list-style-type: none;
+    border-top: 1px solid #ccc;
+}
+
+.navItem a {
+    text-decoration: none;
+    color: #121218;
+    display: block;
+    padding: 14px 20px;
+    font-size: 1rem;
+}
+
+.navItem:hover {
+    background-color: whitesmoke;
+}
+
+/* Hien thi ra mobile nav va overlay */
+.inputMobile:checked~.navOverlay {
+    display: block;
+}
+
+.inputMobile:checked~.navMobileList {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+@media screen and (max-width: 739px) {
+    header .logo {
+        font-size: 1.8rem;
+    }
+
+    header .cart i {
+        font-size: 1rem;
+    }
+
+    header.tabletMobile .navBarsBtn {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+    header.tabletMobile {
+        padding: 0 20px;
+    }
+
+    header .logo {
+        font-size: 2rem;
+    }
+
+    header .cart i {
+        font-size: 1.2rem;
+    }
+
+    header.tabletMobile .navBarsBtn {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .nav header.pc {
+        display: none;
+    }
+
+    .nav header.tabletMobile {
+        display: flex;
+    }
 }
