@@ -1,7 +1,65 @@
-.container {
-    padding-top: 90px;
+.cardsContainer {
+    margin-top: -30px;
+    margin-bottom: 10rem;
 }
 
-.title {
-    color: red;
+.card {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.card div {
+    margin-bottom: 10px;
+}
+
+.card div:last-child {
+    margin-bottom: 0;
+}
+
+.card .cardImage img {
+    width: 100%;
+    height: auto;
+}
+
+.card .cardTitle a {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.card .cardPrice {
+    font-size: .9rem;
+}
+
+/* responsive */
+@media screen and (max-width: 739px) {
+    .card .cardTitle {
+        font-size: .8rem;
+        font-weight: bold;
+    }
+
+    .card .cardPrice {
+        font-size: .7rem;
+    }
+
+    .cardsContainer {
+        margin-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+    .card .cardTitle {
+        font-size: .9rem;
+        font-weight: bold;
+    }
+
+    .card .cardPrice {
+        font-size: .8rem;
+    }
+
+    .cardsContainer {
+        margin-bottom: 6rem;
+    }
 }

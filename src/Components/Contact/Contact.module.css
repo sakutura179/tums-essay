@@ -1,7 +1,3 @@
-.container {
-    padding-top: 90px;
-}
-
 .colItem {
     display: flex;
     flex-direction: column;
@@ -82,13 +78,5 @@
     .colItem .contactForm textarea {
         min-width: 100%;
         max-width: 100%;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-
-    .formItem,
-    .colItem .contactForm label {
-        z-index: 99;
     }
 }

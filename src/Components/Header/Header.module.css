@@ -1,3 +1,4 @@
+/* ====================Header PC==================== */
 .nav {
     position: fixed;
     height: 70px;
@@ -34,13 +35,133 @@ header .logo a {
 
 header .cart {
     align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 header .cart i {
     font-size: 1.5rem;
 }
 
-/* Mobile header */
+header .cart div {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0 5px;
+}
+
+/* ==================== Cart list ==================== */
+.cartItemList {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 380px;
+    max-width: 100%;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all .35s linear;
+}
+
+.cartList {
+    list-style-type: none;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.cartItem {
+    display: flex;
+    padding: 10px;
+    font-size: .9rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.cartItem:last-child {
+    border-bottom: none;
+}
+
+.cartItem .cartItemImg {
+    width: 75px;
+    height: 75px;
+}
+
+.cartItem .cartItemImg img {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.cartItem .cartItemInfo {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cartItem .cartItemInfo .itemQuantityNPrice {
+    color: rgba(0, 0, 0, .5);
+}
+
+.cartItemList .totalPrice {
+    margin: 15px 0;
+    padding: 20px 10px;
+    text-transform: uppercase;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.cartItemList .checkoutContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+.cartItemList .checkoutContainer .btn {
+    height: 40px;
+    padding: 0 10px;
+    text-transform: capitalize;
+    line-height: 40px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #121218;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.cartItemList .checkoutContainer .btn:hover {
+    background-color: #121218;
+    color: #fff;
+}
+
+.cartItemList .checkoutContainer .checkoutBtn {
+    background-color: #121218;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cartItemList .checkoutContainer .checkoutBtn:hover {
+    background-color: rgba(18, 18, 24, 0.8);
+}
+
+/* Hien thi ra Cart list */
+.inputCart:checked~.cartOverlay {
+    display: block;
+}
+
+.inputCart:checked~.cartItemList {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ==================== Mobile header ==================== */
 header.tabletMobile {
     display: none;
 }
@@ -51,7 +172,8 @@ header.tabletMobile .navBarsBtn {
     cursor: pointer;
 }
 
-.navOverlay {
+.navOverlay,
+.cartOverlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -85,12 +207,14 @@ header.tabletMobile .navBarsBtn {
     background-color: rgba(255, 255, 255);
     display: flex;
     flex-direction: column;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateX(-100%);
     transition: all .35s linear;
 }
 
-.navMobileList .closeBtn {
+.navMobileList .closeBtn,
+.cartItemList .closeBtn {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -126,13 +250,25 @@ header.tabletMobile .navBarsBtn {
     opacity: 1;
 }
 
+
+/* ==================== Responsive ==================== */
 @media screen and (max-width: 739px) {
+    header.tabletMobile {
+        padding: 0 10px;
+    }
+
     header .logo {
         font-size: 1.8rem;
     }
 
     header .cart i {
         font-size: 1rem;
+    }
+
+    header .cart div {
+        font-size: .75rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     header.tabletMobile .navBarsBtn {
@@ -153,6 +289,12 @@ header.tabletMobile .navBarsBtn {
         font-size: 1.2rem;
     }
 
+    header .cart div {
+        font-size: .8rem;
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
     header.tabletMobile .navBarsBtn {
         font-size: 1.6rem;
     }
@@ -165,5 +307,9 @@ header.tabletMobile .navBarsBtn {
 
     .nav header.tabletMobile {
         display: flex;
+    }
+
+    .cartItemList {
+        width: 100%;
     }
 }

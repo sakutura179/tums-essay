@@ -22,11 +22,11 @@ function Contact() {
 
     function handleSendMess(userInput) {
         // Khi su dung de API thi o day se goi den ham gui len API ban feedback
-        localStorage.setItem('contact', JSON.stringify(userInput));
+        console.log(userInput);
     }
 
     return (
-        <div className={clsx(styles.container)}>
+        <div className={clsx('container')}>
             <div className={clsx('grid wide')}>
                 <div className={clsx('row')}>
                     <div className={clsx('col l-2 m-0 s-0')}>

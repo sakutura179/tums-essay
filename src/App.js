@@ -6,6 +6,7 @@ import LandingPage from "./Components/LandingPage";
 import Shop from "./Components/Shop";
 import Terms from "./Components/Terms";
 import Contact from "./Components/Contact";
+import Cart from "./Components/Cart";
 
 function App() {
 	const [headerColor, setHeaderColor] = useState("black");
@@ -15,10 +16,11 @@ function App() {
 			<div className="App">
 				<Header />
 				<Routes>
-					<Route path="/tums-essay/" element={<LandingPage />} />
-					<Route path="/tums-essay/shop" element={<Shop />} />
-					<Route path="/tums-essay/terms" element={<Terms />} />
-					<Route path="/tums-essay/contact" element={<Contact />} />
+					<Route path="/" element={<LandingPage />} />
+					<Route path="/shop" element={<Shop />} />
+					<Route path="/terms" element={<Terms />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="/cart" element={<Cart />} />
 				</Routes>
 			</div>
 		</HeaderColor.Provider>

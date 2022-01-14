@@ -19,9 +19,9 @@ function LandingPage() {
                     <div className={clsx('row')}>
                         <div className={clsx('col l-2 m-0 s-0')}>
                             <ul className={clsx(styles.navBar)}>
-                                <li className={clsx(styles.navItem)}><Link to={'/tums-essay/shop'}>Shop</Link></li>
-                                <li className={clsx(styles.navItem)}><Link to={'/tums-essay/terms'}>Terms</Link></li>
-                                <li className={clsx(styles.navItem)}><Link to={'/tums-essay/contact'}>Contact</Link></li>
+                                <li className={clsx(styles.navItem)}><Link to={'/shop'}>Shop</Link></li>
+                                <li className={clsx(styles.navItem)}><Link to={'/terms'}>Terms</Link></li>
+                                <li className={clsx(styles.navItem)}><Link to={'/contact'}>Contact</Link></li>
                             </ul>
                         </div>
                     </div>

@@ -12,7 +12,7 @@ function Terms() {
     });
 
     return (
-        <div className={clsx(styles.container)}>
+        <div className={clsx('container')}>
             <div className={clsx('grid wide')}>
                 <div className={clsx('row')}>
                     <div className={clsx('col l-2 m-0 s-0')}>

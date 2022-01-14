@@ -1,0 +1,110 @@
+.paymentContainer {
+    margin-bottom: 50px;
+}
+
+.colItem .title {
+    font-size: 1.8rem;
+    margin: 20px 0;
+}
+
+.colItem .paymentForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.colItem .paymentForm label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.formItem {
+    width: 100%;
+    outline: none;
+    padding: 0 16px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: inherit;
+}
+
+.formItem:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.colItem .paymentForm input {
+    height: 40px;
+}
+
+.colItem .paymentForm textarea {
+    height: 200px;
+    min-height: 100px;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.colItem .paymentForm .submitBtn {
+    width: fit-content;
+    padding: 14px 24px;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    border: #121218;
+    background-color: #121218;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
+.colItem .cartItemList .cartList {
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.colItem .cartItemList .cartList .cartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.colItem .cartItemList .cartList .cartItem:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.colItem .cartItemList .cartList .cartItem p {
+    max-width: 50%;
+}
+
+.colItem .cartItemList .cartList .cartItem .itemTitle {
+    font-weight: bold;
+}
+
+.colItem .cartItemList .checkoutContainer button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    text-transform: uppercase;
+    color: #121218;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #121218;
+    cursor: pointer;
+    transition: all .35s linear;
+}
+
+.colItem .cartItemList .checkoutContainer button:hover {
+    background-color: #121218;
+    color: white;
+}
+
+@media screen and (max-width: 739px) {
+    .colItem .title {
+        font-size: 1.4rem;
+    }
+}
