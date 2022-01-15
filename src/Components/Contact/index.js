@@ -1,12 +1,12 @@
 import clsx from "clsx"
 import { useContext, useEffect, useState } from 'react';
 
-import { HeaderColor } from '../../App';
+import { Context } from '../Store';
 import NavBar from '../NavBar';
 import styles from "./Contact.module.css"
 
 function Contact() {
-    const [, setHeaderColor] = useContext(HeaderColor);
+    const { setHeaderColor } = useContext(Context);
     let initContact = {
         name: "",
         email: "",

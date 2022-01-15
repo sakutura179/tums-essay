@@ -1,0 +1,133 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "cate_id": 3,
+            "name": "CODUROY SHORT - BLACK",
+            "slug": "coduroy-short-black",
+            "price": 350000,
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "desc": "_ THÀNH PHẦN VẢI: 90% COTTON, 10% SPANDEX",
+            "images": [
+                "https://tummachines.com/wp-content/uploads/2022/01/short-nhung-den-1.jpg",
+                "https://tummachines.com/wp-content/uploads/2022/01/short-nhung-den-2.jpg",
+                "https://tummachines.com/wp-content/uploads/2022/01/short-nhung-den-3.jpg"
+            ],
+            "quantity": 30
+        },
+        {
+            "id": 2,
+            "cate_id": 4,
+            "name": "T.M.G JACKET",
+            "slug": "tmg-jacket",
+            "price": 989000,
+            "sizes": [
+                "S",
+                "M",
+                "L"
+            ],
+            "desc": "_ PHIÊN BẢN GIỚI HIỆN ĐẶC BIỆT, KÈM THEO ÁO LÀ HỘP, STICKER",
+            "images": [
+                "https://tummachines.com/wp-content/uploads/2021/11/harley-14.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/11/harley-15.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/11/harley-16.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/11/harley-17.jpg"
+            ],
+            "quantity": 20
+        },
+        {
+            "id": 3,
+            "cate_id": 1,
+            "name": "SEEM ON INS – TSHIRT",
+            "slug": "seem-on-ins-tshirt",
+            "price": 380000,
+            "sizes": [
+                "S",
+                "M",
+                "L"
+            ],
+            "desc": "_THÀNH PHẦN VẢI: 100% COTTON",
+            "images": [
+                "https://tummachines.com/wp-content/uploads/2021/05/ins-tee-4-1.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/05/ins-tee-5.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/05/a%CC%81o-bong-2.jpg"
+            ],
+            "quantity": 50
+        },
+        {
+            "id": 4,
+            "cate_id": 2,
+            "name": "RELAX BUTTON DENIM / SLIM FIT – BLACK",
+            "slug": "relax-button-denim-slim-fit-black",
+            "price": 500000,
+            "sizes": [
+                "28",
+                "30",
+                "32",
+                "34",
+                "36"
+            ],
+            "desc": "_THÀNH PHẦN VẢI : 95% COTTON, 5% ELASTANE",
+            "images": [
+                "https://tummachines.com/wp-content/uploads/2021/02/jean-3-nu%CC%81t-3.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/02/jean-3-nu%CC%81t-8.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/02/jean-3-nu%CC%81t-6.jpg"
+            ],
+            "quantity": 30
+        },
+        {
+            "id": 5,
+            "cate_id": 5,
+            "name": "MAGNUS GLASS – BLACK",
+            "slug": "magnus-glass-black",
+            "price": 250000,
+            "sizes": [
+                "28",
+                "30",
+                "32",
+                "34",
+                "36"
+            ],
+            "desc": "_ BẠN CẦN MỘT CHIẾC KÍNH CẬN MANG VẺ PHÁ CÁCH, PHÙ HỢP CHO CÔNG VIỆC, CHO HỌC, CHO QUẨY VÀ CÓ ĐỘ BỀN CAO THÌ MAGNUS SINH RA LÀ DÀNH CHO BẠN. HÃY YÊN TÂM LÀ KÍNH NÀY PHÙ HỢP VỚI MỌI KHUÔN MẶT. WEAR AND PLAY THÔI!",
+            "images": [
+                "https://tummachines.com/wp-content/uploads/2021/04/KI%CC%81NH-3-xe%CC%81o.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/04/KI%CC%81NH-3-chi%CC%81nh-die%CC%A3%CC%82n.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/04/KI%CC%81NH-3-ngang.jpg",
+                "https://tummachines.com/wp-content/uploads/2021/04/mason-6.jpg"
+            ],
+            "quantity": 0
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "top",
+            "slug": "top"
+        },
+        {
+            "id": 2,
+            "name": "denim",
+            "slug": "denim"
+        },
+        {
+            "id": 3,
+            "name": "bottom",
+            "slug": "bottom"
+        },
+        {
+            "id": 4,
+            "name": "outterwear",
+            "slug": "outterwear"
+        },
+        {
+            "id": 5,
+            "name": "accessories",
+            "slug": "accessories"
+        }
+    ]
+}

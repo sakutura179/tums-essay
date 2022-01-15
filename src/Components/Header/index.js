@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 
-import { HeaderColor } from '../../App';
+import { Context } from '../Store';
 import styles from './Header.module.css'
 
 function Header() {
-    const [headerColor] = useContext(HeaderColor);
+    const { headerColor } = useContext(Context);
 
     return (
         <div className={clsx(styles.nav)}>

@@ -1,0 +1,158 @@
+.rowContainer {
+    margin-bottom: 5rem;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer .btnContainer {
+    display: flex;
+}
+
+.imageContainer .btnContainer .changeImg {
+    cursor: pointer;
+    width: 50%;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+    font-size: 1rem;
+    border: 1px solid #000;
+}
+
+.imageContainer .btnContainer .changeImg.btnRight {
+    border-left: none;
+}
+
+.imageContainer .btnContainer .changeImg.btnRight:hover,
+.imageContainer .btnContainer .changeImg.btnLeft:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+}
+
+.imageContainer img {
+    width: 0%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.imageContainer img.active {
+    opacity: 1;
+    width: 100%;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+}
+
+.infoContainer div {
+    margin-bottom: 2rem;
+}
+
+.infoContainer .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.infoContainer .price {
+    font-size: 1rem;
+}
+
+.infoContainer .sizes {
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer .sizes .sizeLabel {
+    display: block;
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    line-height: 52px;
+    border-bottom: 1px solid rgba(18, 18, 24, .5);
+    cursor: pointer;
+    margin-right: .5rem;
+    background-color: whitesmoke;
+}
+
+.infoContainer .sizes input.size:checked+.sizeLabel,
+.infoContainer .sizes .sizeLabel:hover {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.infoContainer .addToCartContainer {
+    display: flex;
+}
+
+.infoContainer .addToCartContainer input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #000;
+    border-right: 0;
+}
+
+.infoContainer .addToCartContainer p {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoContainer .addToCartContainer p button {
+    height: 25px;
+    width: 25px;
+    font-size: 1rem;
+    background-color: white;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.infoContainer .addToCartContainer p button:first-child {
+    border-bottom: 0;
+}
+
+/* Hide arrow button in input number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.infoContainer .addToCartContainer .addToCart {
+    margin-left: 20px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    border: 1px solid rgba(0, 0, 0, .5);
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.infoContainer .addToCartContainer .addToCart:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.infoContainer .outOfStock {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.infoContainer .desc {
+    line-height: 20px;
+    font-size: 0.8rem;
+    text-align: justify;
+}

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { useContext, useEffect } from 'react';
 
-import { HeaderColor } from '../../App';
+import { Context } from '../Store';
 import NavBar from '../NavBar';
 import styles from './Terms.module.css'
 
 function Terms() {
-    const [, setHeaderColor] = useContext(HeaderColor);
+    const { setHeaderColor } = useContext(Context);
     useEffect(() => {
         setHeaderColor('black');
     });

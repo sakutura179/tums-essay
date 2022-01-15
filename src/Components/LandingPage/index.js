@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import clsx from 'clsx';
 import { useContext, useEffect } from 'react';
 
-import { HeaderColor } from '../../App';
+import { Context } from '../Store';
 import styles from './LandingPage.module.css'
 
 function LandingPage() {
-    const [, setHeaderColor] = useContext(HeaderColor);
+    const { setHeaderColor } = useContext(Context);
 
     useEffect(() => {
         setHeaderColor('white');
