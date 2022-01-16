@@ -223,9 +223,21 @@ header.tabletMobile .navBarsBtn {
     cursor: pointer;
 }
 
-.navBar {
+.navBar,
+.childNavBar {
     list-style-type: none;
+    text-transform: capitalize;
+}
+
+.navBar {
     border-top: 1px solid #ccc;
+}
+
+.childNavBar .childNavItem a {
+    font-size: 0.8rem;
+    padding-left: 2.5rem;
+    display: block;
+    width: 100%;
 }
 
 .navItem a {
@@ -236,8 +248,13 @@ header.tabletMobile .navBarsBtn {
     font-size: 1rem;
 }
 
-.navItem:hover {
+.navItem:hover,
+.childNavItem:hover {
     background-color: whitesmoke;
+}
+
+.navItem:hover>.childNavBar {
+    background-color: #fff;
 }
 
 /* Hien thi ra mobile nav va overlay */

@@ -6,7 +6,7 @@ import { Context } from '../Store';
 import styles from './Header.module.css'
 
 function Header() {
-    const { headerColor } = useContext(Context);
+    const { categories, headerColor } = useContext(Context);
 
     return (
         <div className={clsx(styles.nav)}>
@@ -119,7 +119,20 @@ function Header() {
                     <i className={clsx(styles.closeBtn, 'bx bx-x')}></i>
                 </label>
                 <ul className={clsx(styles.navBar)}>
-                    <li className={clsx(styles.navItem)}><Link to={'/shop'}>Shop</Link></li>
+                    <li className={clsx(styles.navItem)}>
+                        <Link to={'/shop'}>Shop</Link>
+                        {/* use MAP here to render shop categories */}
+                        <ul className={clsx(styles.childNavBar)}>
+                            {categories.map(cate => (
+                                <li
+                                    key={cate.id}
+                                    className={clsx(styles.childNavItem)}
+                                >
+                                    <Link to={`/category/${cate.slug}`}>{cate.name}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
                     <li className={clsx(styles.navItem)}><Link to={'/terms'}>Terms</Link></li>
                     <li className={clsx(styles.navItem)}><Link to={'/contact'}>Contact</Link></li>
                 </ul>

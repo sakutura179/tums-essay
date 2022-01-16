@@ -5,16 +5,11 @@ import clsx from 'clsx';
 import NavBar from '../NavBar';
 import { Context } from '../Store'
 import styles from './Detail.module.css'
+import { currencyFormat } from '../../Utils/NumberFormat';
 
 function Detail() {
     const { slug } = useParams();
     const { products } = useContext(Context);
-
-    const numberFormat = (value) =>
-        new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND'
-        }).format(value);
 
     const product = products.find(product => product.slug === slug);
 
@@ -69,7 +64,7 @@ function Detail() {
                             {product.name}
                         </div>
                         <div className={clsx(styles.price)}>
-                            {numberFormat(product.price)}
+                            {currencyFormat(product.price)}
                         </div>
 
                         {product.quantity > 0 ?

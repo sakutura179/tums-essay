@@ -19,6 +19,7 @@ function App() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/shop/:slug" element={<Detail />} />
+				<Route path="/category/:slug" element={<Shop />} />
 			</Routes>
 		</div>
 	);

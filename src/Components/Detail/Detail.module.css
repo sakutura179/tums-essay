@@ -38,8 +38,8 @@
 }
 
 .imageContainer img.active {
-    opacity: 1;
     width: 100%;
+    opacity: 1;
 }
 
 .infoContainer {
