@@ -76,6 +76,20 @@ header .cart div {
     list-style-type: none;
     height: 300px;
     overflow-y: auto;
+    scrollbar-width: .6vw;
+    scrollbar-color: lightgreen rgba(200, 200, 200, .5);
+}
+
+.cartList::-webkit-scrollbar {
+    width: .6vw;
+}
+
+.cartList::-webkit-scrollbar-thumb {
+    background-color: lightgreen;
+}
+
+.cartList::-webkit-scrollbar-track {
+    background-color: rgba(200, 200, 200, .5);
 }
 
 .cartItem {
@@ -84,6 +98,7 @@ header .cart div {
     padding: 10px;
     font-size: .9rem;
     border-bottom: 1px solid #ccc;
+    ;
 }
 
 .cartItem:last-child {

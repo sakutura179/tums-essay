@@ -1,3 +1,22 @@
 .container {
     padding-top: 90px;
 }
+
+/* Scrollbar */
+
+* {
+    scrollbar-width: .6vw;
+    scrollbar-color: #333 rgba(200, 200, 200, .5);
+}
+
+*::-webkit-scrollbar {
+    width: .6vw;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #333;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: rgba(200, 200, 200, .5);
+}
