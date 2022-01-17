@@ -7,8 +7,13 @@ import styles from "./Contact.module.css"
 
 function Contact() {
     const { setHeaderColor } = useContext(Context);
+
+    useEffect(() => {
+        setHeaderColor('black');
+    });
+
     let initContact = {
-        name: "",
+        customerName: "",
         email: "",
         phone: "",
         message: ""
@@ -16,13 +21,35 @@ function Contact() {
 
     const [contact, setContact] = useState(initContact);
 
-    useEffect(() => {
-        setHeaderColor('black');
-    });
+    const API_URL = 'http://localhost:8080';
 
-    function handleSendMess(userInput) {
+    const createFeedback = (data) => {
+        let option = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+
+        fetch(`${API_URL}/feedbacks`, option)
+            .then(() => alert('Đã gửi feedback thành công'))
+            .then(() => window.location.reload())
+            .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
+    }
+
+    const handleSendMess = (userInput) => {
         // Khi su dung de API thi o day se goi den ham gui len API ban feedback
-        console.log(userInput);
+        let customerName, phone, email, message;
+        ({ customerName, phone, email, message } = userInput);
+        if (customerName && phone && email && message) {
+            console.log(userInput);
+            let data = {
+                ...userInput
+            }
+            createFeedback(data);
+        } else
+            alert("Vui lòng nhập đầy đủ thông tin");
     }
 
     return (
@@ -40,14 +67,14 @@ function Contact() {
                                 <p>hotline: 0945xxx1212</p>
                             </div>
                             <div className={styles.contactForm}>
-                                <label htmlFor="name">name</label>
+                                <label htmlFor="customerName">name</label>
                                 <input
                                     type="text"
-                                    id="name"
-                                    name="name"
+                                    id="customerName"
+                                    name="customerName"
                                     className={clsx(styles.formItem)}
-                                    value={contact.name}
-                                    onChange={(e) => setContact({ ...contact, name: e.target.value })}
+                                    value={contact.customerName}
+                                    onChange={(e) => setContact({ ...contact, customerName: e.target.value })}
                                 />
                                 <label htmlFor="email">e-mail</label>
                                 <input
