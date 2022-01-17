@@ -57,9 +57,10 @@
 }
 
 .card .outOfStock {
-    font-size: .9rem;
+    font-size: .75rem;
     color: red;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 /* responsive */
