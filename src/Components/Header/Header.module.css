@@ -80,6 +80,7 @@ header .cart div {
 
 .cartItem {
     display: flex;
+    align-items: flex-start;
     padding: 10px;
     font-size: .9rem;
     border-bottom: 1px solid #ccc;
@@ -107,6 +108,14 @@ header .cart div {
 
 .cartItem .cartItemInfo .itemQuantityNPrice {
     color: rgba(0, 0, 0, .5);
+}
+
+.cartItem .removeBtn {
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    text-align: center;
 }
 
 .cartItemList .totalPrice {
@@ -149,6 +158,12 @@ header .cart div {
 
 .cartItemList .checkoutContainer .checkoutBtn:hover {
     background-color: rgba(18, 18, 24, 0.8);
+}
+
+/* Empty cart */
+.cartItemList .emptyCart {
+    text-align: center;
+    padding: 20px;
 }
 
 /* Hien thi ra Cart list */

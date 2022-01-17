@@ -145,6 +145,15 @@ input[type=number] {
     color: #fff;
 }
 
+.infoContainer .addToCartContainer .addToCart.disabled {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: not-allowed;
+}
+
+.infoContainer .addToCartContainer .addToCart.disabled:hover {
+    background-color: #fff;
+}
+
 .infoContainer .outOfStock {
     color: red;
     font-weight: bold;

@@ -3,10 +3,26 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 
 import { Context } from '../Store';
-import styles from './Header.module.css'
+import styles from './Header.module.css';
+import { currencyFormat } from '../../Utils/NumberFormat';
 
 function Header() {
     const { categories, headerColor } = useContext(Context);
+
+    let cart = localStorage.getItem('cart');
+    let total = 0;
+    if (cart) {
+        cart = JSON.parse(cart);
+    } else {
+        cart = [];
+    }
+
+    const handleRemoveCart = (itemID, itemSize) => {
+        cart = cart.filter(item => item.product.id !== itemID || item.size !== itemSize);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.reload();
+    }
+
 
     return (
         <div className={clsx(styles.nav)}>
@@ -22,7 +38,7 @@ function Header() {
                     <div
                         style={{ backgroundColor: headerColor, color: headerColor === 'black' ? 'white' : 'black' }}
                     >
-                        0
+                        {cart.length}
                     </div>
                 </label>
             </header>
@@ -42,7 +58,7 @@ function Header() {
                     <div
                         style={{ backgroundColor: headerColor, color: headerColor === 'black' ? 'white' : 'black' }}
                     >
-                        0
+                        {cart.length}
                     </div>
                 </label>
             </header>
@@ -67,33 +83,58 @@ function Header() {
                 >
                     <i className={clsx(styles.closeBtn, 'bx bx-x')}></i>
                 </label>
-                <ul className={clsx(styles.cartList)}>
-                    <li className={clsx(styles.cartItem)}>
-                        <div className={clsx(styles.cartItemImg)}>
-                            <img src={require('../../assets/product/product1.jpg')} alt="cart-item" />
+                {cart.length !== 0 ? (
+                    <>
+                        <ul className={clsx(styles.cartList)}>
+                            {cart.map((item, index) => {
+                                total += parseInt(item.product.price) * item.quantity;
+                                return (
+                                    <li className={clsx(styles.cartItem)} key={index}>
+                                        <div className={clsx(styles.cartItemImg)}>
+                                            <img src={item.product.images[0]} alt={item.product.name} />
+                                        </div>
+                                        <div className={clsx(styles.cartItemInfo)}>
+                                            <p className={clsx(styles.itemName)}>
+                                                {item.product.name} - {item.size}
+                                            </p>
+                                            <p className={clsx(styles.itemQuantityNPrice)}>
+                                                {item.quantity} x {currencyFormat(item.product.price)}
+                                            </p>
+                                        </div>
+                                        <button
+                                            className={clsx(styles.removeBtn)}
+                                            onClick={() => handleRemoveCart(item.product.id, item.size)}
+                                        >
+                                            <i class='bx bx-x'></i>
+                                        </button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                        <div className={clsx(styles.totalPrice)}>
+                            tạm tính: {currencyFormat(total)}
                         </div>
-                        <div className={clsx(styles.cartItemInfo)}>
-                            <p className={clsx(styles.itemName)}>ABCXYZ</p>
-                            <p className={clsx(styles.itemQuantityNPrice)}>
-                                1 x 480,000 đ
-                            </p>
+                        <div className={clsx(styles.checkoutContainer)}>
+                            <label
+                                htmlFor="inputCart"
+                                className={clsx(styles.btn)}
+                            >
+                                tiếp tục mua hàng
+                            </label>
+                            <Link
+                                to={'/cart'}
+                                className={clsx(styles.checkoutBtn, styles.btn)}
+                            >
+
+                                thanh toán
+                            </Link>
                         </div>
-                    </li>
-                </ul>
-                <div className={clsx(styles.totalPrice)}>
-                    tạm tính: 480,000 đ
-                </div>
-                <div className={clsx(styles.checkoutContainer)}>
-                    <label
-                        htmlFor="inputCart"
-                        className={clsx(styles.btn)}
-                    >
-                        tiếp tục mua hàng
-                    </label>
-                    <Link to={'/cart'} className={clsx(styles.checkoutBtn, styles.btn)}>
-                        thanh toán
-                    </Link>
-                </div>
+                    </>
+                ) : (
+                    <div className={clsx(styles.emptyCart)}>
+                        Giỏ hàng của bạn đang trống
+                    </div>
+                )}
             </div>
 
 

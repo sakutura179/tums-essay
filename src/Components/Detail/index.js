@@ -14,6 +14,45 @@ function Detail() {
     const product = products.find(product => product.slug === slug);
 
     const [quantity, setQuantity] = useState(1);
+    const [checkedSize, setCheckedSize] = useState('');
+
+    const handleAddToCart = () => {
+        if (checkedSize !== '') {
+            // console.log(quantity, checkedSize);
+            let cart = localStorage.getItem('cart');
+            if (cart) {
+                cart = JSON.parse(cart);
+                // Tim kiem da co san pham size nay chua
+                var i = cart.findIndex(item => item.product.id === product.id && item.size === checkedSize)
+
+                // Neu co roi thi cong them quantity
+                if (i !== -1) {
+                    cart[i].quantity += quantity;
+                } else {
+                    // Chua co thi them vao mang bang ham push
+                    cart.push({
+                        product,
+                        quantity,
+                        size: checkedSize
+                    });
+                }
+
+                // Trong TH nao thi cung setItem lai cho key 'cart'
+                localStorage.setItem('cart', JSON.stringify(cart));
+            } else {
+                // Neu trong localStorage chua co cart thi tao moi
+                cart = [{
+                    product,
+                    quantity,
+                    size: checkedSize
+                }];
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            window.location.reload();
+        }
+    }
 
     // Slideshow
     const [currentImage, setCurrentImage] = useState(0);
@@ -78,6 +117,8 @@ function Detail() {
                                                     id={size}
                                                     className={clsx(styles.size)}
                                                     name={'size'}
+                                                    onChange={() => setCheckedSize(size)}
+                                                    checked={size === checkedSize}
                                                     hidden
                                                 />
                                                 <label
@@ -122,7 +163,13 @@ function Detail() {
                                                 -
                                             </button>
                                         </p>
-                                        <button className={clsx(styles.addToCart)}>
+                                        <button
+                                            onClick={() => handleAddToCart()}
+                                            className={clsx(
+                                                styles.addToCart,
+                                                checkedSize === '' ? styles.disabled : ''
+                                            )}
+                                        >
                                             thêm vào giỏ hàng
                                         </button>
                                     </div>
@@ -140,7 +187,7 @@ function Detail() {
 
                     </div>
                 </div>
-            </div >
+            </div>
         )
 
     return (
