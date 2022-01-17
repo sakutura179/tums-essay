@@ -56,6 +56,12 @@
     font-size: .9rem;
 }
 
+.card .outOfStock {
+    font-size: .9rem;
+    color: red;
+    text-transform: uppercase;
+}
+
 /* responsive */
 @media screen and (max-width: 739px) {
     .card .cardTitle {

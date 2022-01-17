@@ -73,9 +73,15 @@ function Shop() {
                                                     {product.name}
                                                 </Link>
                                             </div>
-                                            <div className={clsx(styles.cardPrice)}>
-                                                {currencyFormat(product.price)}
-                                            </div>
+                                            {product.quantity > 0 ? (
+                                                <div className={clsx(styles.cardPrice)}>
+                                                    {currencyFormat(product.price)}
+                                                </div>
+                                            ) : (
+                                                <div className={clsx(styles.outOfStock)}>
+                                                    hết hàng
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 ))
