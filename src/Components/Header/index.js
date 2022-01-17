@@ -105,7 +105,7 @@ function Header() {
                                             className={clsx(styles.removeBtn)}
                                             onClick={() => handleRemoveCart(item.product.id, item.size)}
                                         >
-                                            <i class='bx bx-x'></i>
+                                            <i className='bx bx-x'></i>
                                         </button>
                                     </li>
                                 )

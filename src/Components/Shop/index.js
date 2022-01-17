@@ -25,6 +25,8 @@ function Shop() {
         if (cateID) {
             cateID = cateID.id;
             filteredProducts = products.filter(product => product.cate_id === cateID);
+            // reverse filteredProducts
+            filteredProducts = [...filteredProducts].reverse();
             if (filteredProducts.length === 0) {
                 // console.log('Has category but 0 products');
                 filteredProducts = [];
@@ -34,7 +36,8 @@ function Shop() {
             filteredProducts = [];
         }
     } else {
-        filteredProducts = products;
+        filteredProducts = [...products].reverse();
+        console.log(filteredProducts);
     }
 
     return (
