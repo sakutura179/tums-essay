@@ -48,11 +48,11 @@ function Cart() {
         }
 
         fetch(`${API_URL}/invoice`, option)
+            .then(() => alert('Đã đặt hàng thành công'))
             .then(() => {
                 localStorage.removeItem('cart');
                 window.location.reload();
             })
-            .then(() => alert('Đã đặt hàng thành công'))
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
     }
 
