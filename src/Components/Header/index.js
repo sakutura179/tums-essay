@@ -18,11 +18,12 @@ function Header() {
     }
 
     const handleRemoveCart = (itemID, itemSize) => {
-        cart = cart.filter(item => item.product.id !== itemID || item.size !== itemSize);
+        cart = cart.filter(item => item.product.product_id !== itemID || item.size !== itemSize);
         localStorage.setItem('cart', JSON.stringify(cart));
         window.location.reload();
     }
 
+    let url = 'http://tums-essay-be.shop/';
 
     return (
         <div className={clsx(styles.nav)}>
@@ -91,7 +92,7 @@ function Header() {
                                 return (
                                     <li className={clsx(styles.cartItem)} key={index}>
                                         <div className={clsx(styles.cartItemImg)}>
-                                            <img src={item.product.images[0]} alt={item.product.name} />
+                                            <img src={url + item.product.image[0].path} alt={item.product.name} />
                                         </div>
                                         <div className={clsx(styles.cartItemInfo)}>
                                             <p className={clsx(styles.itemName)}>
@@ -103,7 +104,7 @@ function Header() {
                                         </div>
                                         <button
                                             className={clsx(styles.removeBtn)}
-                                            onClick={() => handleRemoveCart(item.product.id, item.size)}
+                                            onClick={() => handleRemoveCart(item.product.product_id, item.size)}
                                         >
                                             <i className='bx bx-x'></i>
                                         </button>
@@ -166,7 +167,7 @@ function Header() {
                         <ul className={clsx(styles.childNavBar)}>
                             {categories.map(cate => (
                                 <li
-                                    key={cate.id}
+                                    key={cate.cate_id}
                                     className={clsx(styles.childNavItem)}
                                 >
                                     <Link to={`/category/${cate.slug}`}>{cate.name}</Link>

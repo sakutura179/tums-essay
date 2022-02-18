@@ -23,7 +23,7 @@ function Detail() {
             if (cart) {
                 cart = JSON.parse(cart);
                 // Tim kiem da co san pham size nay chua
-                var i = cart.findIndex(item => item.product.id === product.id && item.size === checkedSize)
+                var i = cart.findIndex(item => item.product.product_id === product.product_id && item.size === checkedSize)
 
                 // Neu co roi thi cong them quantity
                 if (i !== -1) {
@@ -58,15 +58,17 @@ function Detail() {
     const [currentImage, setCurrentImage] = useState(0);
 
     let renderThis;
+    let url = 'http://tums-essay-be.shop/';
+
     if (product)
         renderThis = (
             <div className={clsx('row')}>
                 <div className={clsx('col l-6 m-12 s-12')}>
                     <div className={clsx(styles.imageContainer)}>
-                        {product.images.map((image, index) => (
+                        {product.image.map((item, index) => (
                             <img
                                 key={index}
-                                src={image}
+                                src={url + item.path}
                                 alt={product.slug}
                                 className={clsx(index === currentImage ? styles.active : '')}
                             />
@@ -76,7 +78,7 @@ function Detail() {
                                 className={clsx(styles.changeImg, styles.btnLeft)}
                                 onClick={() => {
                                     if (currentImage === 0)
-                                        setCurrentImage(product.images.length - 1);
+                                        setCurrentImage(product.image.length - 1);
                                     else
                                         setCurrentImage(currentImage - 1);
                                 }}
@@ -86,7 +88,7 @@ function Detail() {
                             <button
                                 className={clsx(styles.changeImg, styles.btnRight)}
                                 onClick={() => {
-                                    if (currentImage === product.images.length - 1)
+                                    if (currentImage === product.image.length - 1)
                                         setCurrentImage(0);
                                     else
                                         setCurrentImage(currentImage + 1);
@@ -110,22 +112,22 @@ function Detail() {
                             (
                                 <>
                                     <div className={clsx(styles.sizes)}>
-                                        {product.sizes.map((size) => (
-                                            <p key={size} >
+                                        {product.size.map((item) => (
+                                            <p key={item.name} >
                                                 <input
                                                     type={'radio'}
-                                                    id={size}
+                                                    id={item.name}
                                                     className={clsx(styles.size)}
                                                     name={'size'}
-                                                    onChange={() => setCheckedSize(size)}
-                                                    checked={size === checkedSize}
+                                                    onChange={() => setCheckedSize(item.name)}
+                                                    checked={item.name === checkedSize}
                                                     hidden
                                                 />
                                                 <label
                                                     className={clsx(styles.sizeLabel)}
-                                                    htmlFor={size}
+                                                    htmlFor={item.name}
                                                 >
-                                                    {size}
+                                                    {item.name}
                                                 </label>
                                             </p>
                                         ))}

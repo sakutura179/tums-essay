@@ -185,10 +185,11 @@ function Cart() {
                                                         total += parseInt(item.product.price) * item.quantity;
                                                         productList.push(
                                                             {
-                                                                id: item.product.id,
+                                                                id: item.product.product_id,
                                                                 quantity: item.quantity
                                                             }
                                                         );
+
                                                         return (
                                                             <li className={clsx(styles.cartItem)} key={index}>
                                                                 <p>{item.product.name} - Size: {item.size} x {item.quantity}</p>

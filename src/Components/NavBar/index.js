@@ -16,7 +16,7 @@ function NavBar() {
                 <ul className={clsx(styles.childNavBar)}>
                     {categories.map(cate => (
                         <li
-                            key={cate.id}
+                            key={cate.cate_id}
                             className={clsx(styles.childNavItem)}
                         >
                             <Link to={`/category/${cate.slug}`}>{cate.name}</Link>

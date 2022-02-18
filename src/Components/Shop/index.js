@@ -20,10 +20,13 @@ function Shop() {
     const { slug } = useParams();
     let filteredProducts;
     if (slug) {
-        let cateID = categories.find(category => category.slug === slug);
-
+        let cateID = categories.find(category => {
+            console.log(category.slug, slug);
+            return category.slug === slug;
+        });
+        console.log(cateID);
         if (cateID) {
-            cateID = cateID.id;
+            cateID = cateID.cate_id;
             filteredProducts = products.filter(product => product.cate_id === cateID);
             // reverse filteredProducts
             filteredProducts = [...filteredProducts].reverse();
@@ -36,9 +39,11 @@ function Shop() {
             filteredProducts = [];
         }
     } else {
-        filteredProducts = [...products].reverse();
+        filteredProducts = products.reverse();
         console.log(filteredProducts);
     }
+
+    let url = 'http://tums-essay-be.shop/';
 
     return (
         <div className={clsx('container')}>
@@ -52,17 +57,17 @@ function Shop() {
                             {/* begin loop */}
                             {filteredProducts.length > 0 ? (
                                 filteredProducts.map(product => (
-                                    <div className={clsx('col l-4 m-6 s-6')} key={product.id}>
+                                    <div className={clsx('col l-4 m-6 s-6')} key={product.product_id}>
                                         <div className={clsx(styles.card)}>
                                             <div className={clsx(styles.cardImage)}>
                                                 <Link to={`/shop/${product.slug}`}>
                                                     <img
-                                                        src={product.images[0]}
+                                                        src={url + product.image[0].path}
                                                         alt={product.slug}
                                                         className={clsx(styles.img1)}
                                                     />
                                                     <img
-                                                        src={product.images[1]}
+                                                        src={url + product.image[1].path}
                                                         alt={product.slug}
                                                         className={clsx(styles.img2)}
                                                     />
