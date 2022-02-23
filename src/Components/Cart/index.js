@@ -36,7 +36,7 @@ function Cart() {
 
     const [payment, setPayment] = useState(initPayment);
 
-    const API_URL = 'http://localhost:8080';
+    const API_URL = 'http://tums-essay-be.shop/api/invoices';
 
     const createInvoice = (data) => {
         let option = {
@@ -47,8 +47,9 @@ function Cart() {
             body: JSON.stringify(data)
         }
 
-        fetch(`${API_URL}/invoice`, option)
-            .then(() => alert('Đã đặt hàng thành công'))
+        fetch(API_URL, option)
+            .then(res => res.json())
+            .then(data => alert(data.message))
             .then(() => {
                 localStorage.removeItem('cart');
                 window.location.reload();
@@ -182,11 +183,14 @@ function Cart() {
                                                     {/* begin loop */}
 
                                                     {cart.map((item, index) => {
-                                                        total += parseInt(item.product.price) * item.quantity;
+                                                        let totalItem = parseInt(item.product.price) * item.quantity;
+                                                        total += totalItem;
                                                         productList.push(
                                                             {
                                                                 id: item.product.product_id,
-                                                                quantity: item.quantity
+                                                                quantity: item.quantity,
+                                                                size: item.size,
+                                                                total: totalItem
                                                             }
                                                         );
 

@@ -21,7 +21,7 @@ function Contact() {
 
     const [contact, setContact] = useState(initContact);
 
-    const API_URL = 'http://localhost:8080';
+    const API_URL = 'http://tums-essay-be.shop/api/feedbacks';
 
     const createFeedback = (data) => {
         let option = {
@@ -32,14 +32,14 @@ function Contact() {
             body: JSON.stringify(data)
         }
 
-        fetch(`${API_URL}/feedbacks`, option)
+        fetch(API_URL, option)
             .then(() => alert('Đã gửi feedback thành công'))
             .then(() => window.location.reload())
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
     }
 
     const handleSendMess = (userInput) => {
-        // Khi su dung de API thi o day se goi den ham gui len API ban feedback
+        // Khi su dung de API thi o day se goi den ham gui len API bang feedback
         let customerName, phone, email, message;
         ({ customerName, phone, email, message } = userInput);
         if (customerName && phone && email && message) {

@@ -145,7 +145,8 @@
       "products": [
         {
           "id": 1,
-          "quantity": 1
+          "quantity": 1,
+          "total": 350000
         }
       ]
     },
@@ -162,7 +163,8 @@
       "products": [
         {
           "id": 3,
-          "quantity": 3
+          "quantity": 3,
+          "total": 1140000
         }
       ],
       "id": 2
@@ -180,19 +182,23 @@
       "products": [
         {
           "id": 3,
-          "quantity": 1
+          "quantity": 1,
+          "total": 380000
         },
         {
           "id": 4,
-          "quantity": 2
+          "quantity": 2,
+          "total": 1000000
         },
         {
           "id": 1,
-          "quantity": 2
+          "quantity": 2,
+          "total": 700000
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 1,
+          "total": 989000
         }
       ],
       "id": 3
@@ -210,7 +216,8 @@
       "products": [
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 1,
+          "total": 989000
         }
       ],
       "id": 4
@@ -237,6 +244,13 @@
       "phone": "0909090909",
       "message": "Message 2",
       "id": 3
+    },
+    {
+      "customerName": "123",
+      "phone": "091234",
+      "email": "khanh@123",
+      "message": "1234",
+      "id": 4
     }
   ]
 }

@@ -10,15 +10,13 @@ function Provider({ children }) {
     const [headerColor, setHeaderColor] = useState("black");
     const [categories, setCategories] = useState([]);
 
-    // const cateAPI = 'http://localhost:8080/categories';
     const cateAPI = 'http://tums-essay-be.shop/api/categories';
-    // const productAPI = 'http://localhost:8080/products';
     const productAPI = 'http://tums-essay-be.shop/api/products';
 
     useEffect(() => {
         fetch(productAPI)
             .then(res => res.json())
-            .then(data => setProducts(data.data))
+            .then(fetchData => setProducts(fetchData.data))
         // Do o BE tra ve doi tuong co key la 'data' chua toan bo du lieu cua Products (su dung postman de test)
 
         fetch(cateAPI)
@@ -26,7 +24,7 @@ function Provider({ children }) {
             .then(data => setCategories(data))
     }, []);
 
-    const data = {
+    const contextData = {
         products,
         categories,
         headerColor,
@@ -36,7 +34,7 @@ function Provider({ children }) {
     }
 
     return (
-        <Context.Provider value={data}>
+        <Context.Provider value={contextData}>
             {children}
         </Context.Provider>
     )

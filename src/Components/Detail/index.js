@@ -15,6 +15,7 @@ function Detail() {
 
     const [quantity, setQuantity] = useState(1);
     const [checkedSize, setCheckedSize] = useState('');
+    const [quantityInStock, setquantityInStock] = useState('');
 
     const handleAddToCart = () => {
         if (checkedSize !== '') {
@@ -108,80 +109,88 @@ function Detail() {
                             {currencyFormat(product.price)}
                         </div>
 
-                        {product.quantity > 0 ?
-                            (
-                                <>
-                                    <div className={clsx(styles.sizes)}>
-                                        {product.size.map((item) => (
-                                            <p key={item.name} >
-                                                <input
-                                                    type={'radio'}
-                                                    id={item.name}
-                                                    className={clsx(styles.size)}
-                                                    name={'size'}
-                                                    onChange={() => setCheckedSize(item.name)}
-                                                    checked={item.name === checkedSize}
-                                                    hidden
-                                                />
-                                                <label
-                                                    className={clsx(styles.sizeLabel)}
-                                                    htmlFor={item.name}
-                                                >
-                                                    {item.name}
-                                                </label>
-                                            </p>
-                                        ))}
-                                    </div>
 
-                                    <div className={clsx(styles.addToCartContainer)}>
-                                        <input
-                                            type={'number'}
-                                            value={quantity}
-                                            onChange={(e) => setQuantity(parseInt(e.target.value))}
-                                            className={clsx(styles.quantity)}
-                                            min={1}
-                                            max={product.quantity}
-                                            name={'quantity'}
-                                        />
-                                        <p>
-                                            <button
-                                                onClick={() => {
-                                                    if (quantity < product.quantity) {
-                                                        let newQuantity = quantity + 1;
-                                                        setQuantity(newQuantity);
-                                                    }
-                                                }}
-                                            >
-                                                +
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    if (quantity > 1) {
-                                                        let newQuantity = quantity - 1;
-                                                        setQuantity(newQuantity);
-                                                    }
-                                                }}
-                                            >
-                                                -
-                                            </button>
-                                        </p>
-                                        <button
-                                            onClick={() => handleAddToCart()}
-                                            className={clsx(
-                                                styles.addToCart,
-                                                checkedSize === '' ? styles.disabled : ''
-                                            )}
-                                        >
-                                            thêm vào giỏ hàng
-                                        </button>
+                        <div className={clsx(styles.sizes)}>
+                            {product.size.map((item) => (
+                                <p key={item.name} >
+                                    <input
+                                        type={'radio'}
+                                        id={item.name}
+                                        className={clsx(styles.size)}
+                                        name={'size'}
+                                        onChange={() => {
+                                            setCheckedSize(item.name);
+                                            setquantityInStock(item.pivot.quantity);
+                                            setQuantity(1);
+                                            return;
+                                        }}
+                                        checked={item.name === checkedSize}
+                                        hidden
+                                    />
+                                    <label
+                                        className={clsx(styles.sizeLabel)}
+                                        htmlFor={item.name}
+                                    >
+                                        {item.name}
+                                    </label>
+                                </p>
+                            ))}
+                        </div>
+                        {
+                            checkedSize !== '' ?
+                                quantityInStock !== 0 ? (
+                                    <div>{quantityInStock} sản phẩm có sẵn</div>
+                                ) : (
+                                    <div className={clsx(styles.outOfStock)}>
+                                        Hết hàng
                                     </div>
-                                </>
-                            ) :
-                            (
-                                <div className={clsx(styles.outOfStock)}>
-                                    Hết hàng
-                                </div>
-                            )}
+                                )
+                                : ''
+                        }
+
+                        <div className={clsx(styles.addToCartContainer)}>
+                            <input
+                                type={'number'}
+                                value={quantity}
+                                onChange={(e) => setQuantity(parseInt(e.target.value))}
+                                className={clsx(styles.quantity)}
+                                min={1}
+                                max={product.quantity}
+                                name={'quantity'}
+                            />
+                            <p>
+                                <button
+                                    onClick={() => {
+                                        if (quantity < quantityInStock) {
+                                            let newQuantity = quantity + 1;
+                                            setQuantity(newQuantity);
+                                        }
+                                    }}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        if (quantity > 1) {
+                                            let newQuantity = quantity - 1;
+                                            setQuantity(newQuantity);
+                                        }
+                                    }}
+                                >
+                                    -
+                                </button>
+                            </p>
+                            <button
+                                onClick={() => handleAddToCart()}
+                                className={clsx(
+                                    styles.addToCart,
+                                    (checkedSize === '' || quantityInStock === 0) ? styles.disabled : ''
+                                )}
+                                disabled={(checkedSize === '' || quantityInStock === 0)}
+                            >
+                                thêm vào giỏ hàng
+                            </button>
+                        </div>
 
                         <div className={clsx(styles.desc)}>
                             {product.desc}
