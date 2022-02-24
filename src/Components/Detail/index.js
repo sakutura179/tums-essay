@@ -17,7 +17,7 @@ function Detail() {
 
     const [quantity, setQuantity] = useState(1);
     const [checkedSize, setCheckedSize] = useState('');
-    const [quantityInStock, setquantityInStock] = useState('');
+    const [quantityInStock, setQuantityInStock] = useState('');
 
     const handleAddToCart = () => {
         if (checkedSize !== '') {
@@ -122,7 +122,7 @@ function Detail() {
                                         name={'size'}
                                         onChange={() => {
                                             setCheckedSize(item.name);
-                                            setquantityInStock(item.pivot.quantity);
+                                            setQuantityInStock(item.pivot.quantity);
                                             setQuantity(1);
                                             return;
                                         }}
@@ -157,8 +157,21 @@ function Detail() {
                                 onChange={(e) => setQuantity(parseInt(e.target.value))}
                                 className={clsx(styles.quantity)}
                                 min={1}
-                                max={product.quantity}
+                                max={quantityInStock}
                                 name={'quantity'}
+                                onInput={(e) => {
+                                    if (e.target.value !== '') {
+                                        if (parseInt(e.target.value) > parseInt(e.target.max))
+                                            e.target.value = e.target.max;
+
+                                        return setQuantity(parseInt(e.target.value));
+                                    } else {
+                                        e.target.value = 1;
+                                        return setQuantity(1);
+                                    }
+                                }}
+                                disabled={checkedSize === ''}
+
                             />
                             <p>
                                 <button
