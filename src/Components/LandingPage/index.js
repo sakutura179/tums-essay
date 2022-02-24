@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react';
 
 import { Context } from '../Store';
 import styles from './LandingPage.module.css'
+import Header from "../Header";
 
 function LandingPage() {
     const { setHeaderColor } = useContext(Context);
@@ -14,6 +15,7 @@ function LandingPage() {
 
     return (
         <>
+            <Header />
             <div className={clsx(styles.container, styles.img1)}>
                 <div className={clsx('grid wide')}>
                     <div className={clsx('row')}>

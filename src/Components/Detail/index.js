@@ -1,11 +1,13 @@
 import { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
+import { Markup } from 'interweave';
 
 import NavBar from '../NavBar';
 import { Context } from '../Store'
 import styles from './Detail.module.css'
 import { currencyFormat } from '../../Utils/NumberFormat';
+import Header from "../Header";
 
 function Detail() {
     const { slug } = useParams();
@@ -192,28 +194,31 @@ function Detail() {
                             </button>
                         </div>
 
-                        <div className={clsx(styles.desc)}>
-                            {product.desc}
-                        </div>
-
+                        <Markup
+                            content={product.desc}
+                            className={clsx(styles.desc)}
+                        />
                     </div>
                 </div>
             </div>
         )
 
     return (
-        <div className={clsx('container')}>
-            <div className={clsx('grid wide')}>
-                <div className={clsx('row', styles.rowContainer)}>
-                    <div className={clsx('col l-2 m-0 s-0')}>
-                        <NavBar />
-                    </div>
-                    <div className={clsx('col l-10 m-12 s-12')}>
-                        {renderThis}
+        <>
+            <Header />
+            <div className={clsx('container')}>
+                <div className={clsx('grid wide')}>
+                    <div className={clsx('row', styles.rowContainer)}>
+                        <div className={clsx('col l-2 m-0 s-0')}>
+                            <NavBar />
+                        </div>
+                        <div className={clsx('col l-10 m-12 s-12')}>
+                            {renderThis}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
