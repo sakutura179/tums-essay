@@ -7,6 +7,8 @@ import Contact from "./Components/Contact";
 import Cart from "./Components/Cart";
 import Detail from "./Components/Detail";
 import Category from "./Components/Admin/Category";
+import Product from "./Components/Admin/Product";
+import Dashboard from "./Components/Admin/Dashboard";
 
 function App() {
 	return (
@@ -20,7 +22,9 @@ function App() {
 				<Route path="/shop/:slug" element={<Detail />} />
 				<Route path="/category/:slug" element={<Shop />} />
 				{/* Admin Routes */}
-				<Route path="/category" element={<Category />} />
+				<Route path="/admin/category" element={<Category />} />
+				<Route path="/admin/product" element={<Product />} />
+				<Route path="/admin/dashboard" element={<Dashboard />} />
 			</Routes>
 		</div>
 	);
