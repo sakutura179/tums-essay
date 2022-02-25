@@ -1,17 +1,15 @@
-import useToken from "../../../Utils/useToken";
-import Login from "../Login";
+
+
+import CheckToken from "../../CheckToken";
 
 function Category() {
-    const { token, setToken } = useToken();
-
-    if (!token)
-        return <Login setToken={setToken} />;
-
     return (
-        <div>
-            Category
-        </div>
-    );
+        <CheckToken>
+            <div>
+                Category
+            </div>
+        </CheckToken>
+    )
 }
 
 export default Category;
