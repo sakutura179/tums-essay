@@ -7,6 +7,7 @@ import NavBar from '../NavBar';
 import { Context } from '../Store'
 import styles from './Detail.module.css'
 import { currencyFormat } from '../../Utils/NumberFormat';
+import Header from "../Header";
 
 function Detail() {
     const { slug } = useParams();
@@ -216,18 +217,21 @@ function Detail() {
         )
 
     return (
-        <div className={clsx('container')}>
-            <div className={clsx('grid wide')}>
-                <div className={clsx('row', styles.rowContainer)}>
-                    <div className={clsx('col l-2 m-0 s-0')}>
-                        <NavBar />
-                    </div>
-                    <div className={clsx('col l-10 m-12 s-12')}>
-                        {renderThis}
+        <>
+            <Header />
+            <div className={clsx('container')}>
+                <div className={clsx('grid wide')}>
+                    <div className={clsx('row', styles.rowContainer)}>
+                        <div className={clsx('col l-2 m-0 s-0')}>
+                            <NavBar />
+                        </div>
+                        <div className={clsx('col l-10 m-12 s-12')}>
+                            {renderThis}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
