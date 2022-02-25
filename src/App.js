@@ -6,7 +6,7 @@ import Terms from "./Components/Terms";
 import Contact from "./Components/Contact";
 import Cart from "./Components/Cart";
 import Detail from "./Components/Detail";
-import Login from "./Components/Admin/Login";
+import Category from "./Components/Admin/Category";
 
 function App() {
 	return (
@@ -19,7 +19,8 @@ function App() {
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/shop/:slug" element={<Detail />} />
 				<Route path="/category/:slug" element={<Shop />} />
-				<Route path="/login" element={<Login />} />
+				{/* Admin Routes */}
+				<Route path="/category" element={<Category />} />
 			</Routes>
 		</div>
 	);
