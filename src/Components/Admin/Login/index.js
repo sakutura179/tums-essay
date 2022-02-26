@@ -4,15 +4,29 @@ import { useState } from 'react';
 
 import styles from './Login.module.css'
 
+async function loginUser(content) {
+    return fetch('http://tums-essay-be.shop/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(content)
+    })
+        .then(res => res.json())
+}
 function Login({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Gui data len server. Sau do nhan ve token
-        console.log(username, password);
-        setToken({ 'token': '12345' });
+        const token = await loginUser({ username, password });
+        if (token.status === 'success')
+            setToken(token);
+        else
+            setError(token.message);
     }
 
     return (
@@ -20,6 +34,16 @@ function Login({ setToken }) {
             <div className={clsx(styles.login_container)}>
                 <div className={clsx(styles.login_form)}>
                     <h1>Admin Login</h1>
+                    {/* Show error message */}
+                    {
+                        error &&
+                        <p className={clsx(styles.error)}>
+                            {error}
+                            <button onClick={() => setError(false)}>
+                                <i class='bx bx-x' ></i>
+                            </button>
+                        </p>
+                    }
                     <form onSubmit={handleSubmit}>
                         <div className={clsx(styles.label_container)}>
                             <input

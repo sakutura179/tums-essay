@@ -73,3 +73,26 @@
     font-size: 15px;
     color: #1400EC;
 }
+
+p.error {
+    border: 1px solid #f85149;
+    background-color: rgba(248, 81, 73, .5);
+    color: white;
+    padding: 16px;
+    font-size: 13px;
+    border-radius: 6px;
+    position: relative;
+    width: 90%;
+    margin: 10px 0;
+}
+
+p button {
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 20px;
+    color: #f85149;
+    position: absolute;
+    right: 16px;
+}
