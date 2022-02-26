@@ -4,9 +4,10 @@ import DataTable from 'react-data-table-component';
 
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
-// import styles from './Product.module.css';
+import styles from './Product.module.css';
 
 function Product() {
+    const [pending, setPending] = useState(true);
     const [products, setProducts] = useState([]);
     const productAPI = 'http://tums-essay-be.shop/api/products';
 
@@ -14,18 +15,23 @@ function Product() {
         fetch(productAPI)
             .then(res => res.json())
             .then(fetchData => setProducts(fetchData.data))
+            .then(() => setPending(false))
+            .catch(err => console.log(err))
     }, []);
 
     const columns = [
         {
             name: 'ID',
             selector: row => row.product_id,
-            sortable: true
+            sortable: true,
+            width: '60px'
         },
         {
             name: 'Name',
             selector: row => row.name,
-            sortable: true
+            sortable: true,
+            grow: 3,
+            wrap: true
         },
         {
             name: 'Image',
@@ -49,16 +55,49 @@ function Product() {
                 });
                 return sizes;
             }
+        },
+        {
+            name: 'Update',
+            selector: () => {
+                return (
+                    <button className={styles.btn}>
+                        <i class='bx bxs-edit-alt' ></i>
+                    </button>
+                )
+            },
+            center: true,
+            width: '75px'
+        },
+        {
+            name: 'Delete',
+            selector: () => {
+                return (
+                    <button className={styles.btn}>
+                        <i class='bx bx-x' ></i>
+                    </button>
+                )
+            },
+            center: true,
+            width: '75px'
         }
     ];
+
+    const paginationComponentOptions = {
+        selectAllRowsItem: true,
+        selectAllRowsItemText: 'All'
+    }
 
     return (
         <CheckToken>
             <Sidebar />
             <div className={clsx('adminContent')}>
+                <h1>Product List</h1>
                 <DataTable
                     columns={columns}
                     data={products}
+                    pagination
+                    paginationComponentOptions={paginationComponentOptions}
+                    progressPending={pending}
                 />
             </div>
         </CheckToken>

@@ -3,9 +3,15 @@
 }
 
 .adminContent {
-    width: 79%;
+    width: 80%;
     position: absolute;
     right: 0;
+    background-color: #ffffff;
+    height: 100vh;
+}
+
+.adminContent h1 {
+    text-align: center;
 }
 
 /* Scrollbar */

@@ -9,6 +9,8 @@ import Detail from "./Components/Detail";
 import Category from "./Components/Admin/Category";
 import Product from "./Components/Admin/Product";
 import Dashboard from "./Components/Admin/Dashboard";
+import Feedback from "./Components/Admin/Feedback";
+import Invoice from "./Components/Admin/Invoice";
 
 function App() {
 	return (
@@ -22,9 +24,11 @@ function App() {
 				<Route path="/shop/:slug" element={<Detail />} />
 				<Route path="/category/:slug" element={<Shop />} />
 				{/* Admin Routes */}
+				<Route path="/admin/dashboard" element={<Dashboard />} />
 				<Route path="/admin/category" element={<Category />} />
 				<Route path="/admin/product" element={<Product />} />
-				<Route path="/admin/dashboard" element={<Dashboard />} />
+				<Route path="/admin/invoice" element={<Invoice />} />
+				<Route path="/admin/feedback" element={<Feedback />} />
 			</Routes>
 		</div>
 	);

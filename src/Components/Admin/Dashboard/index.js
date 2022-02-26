@@ -8,7 +8,7 @@ function Dashboard() {
         <CheckToken>
             <Sidebar />
             <div className={clsx('adminContent')}>
-                Dashboard
+                <h1>Dashboard</h1>
             </div>
         </CheckToken>
     )

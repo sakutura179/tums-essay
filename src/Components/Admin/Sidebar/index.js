@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import styles from './Sidebar.module.css';
 
 function Sidebar() {
+    const handleLogout = () => {
+        sessionStorage.clear('token');
+        window.location.href = '/';
+    }
+
     return (
         <div className={clsx(styles.sidebar_container)}>
             <div className={clsx(styles.sidebar_header)}>
@@ -29,22 +34,24 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to={'/admin/product'}>
+                    <Link to={'/admin/invoice'}>
                         <i className='bx bxs-spreadsheet'></i>
                         Invoices
                     </Link>
                 </li>
                 <li>
-                    <Link to={'/admin/product'}>
+                    <Link to={'/admin/feedback'}>
                         <i className='bx bx-paper-plane'></i>
                         Feedbacks
                     </Link>
                 </li>
                 <li className={clsx(styles.logout)}>
-                    <Link to={'/admin/product'}>
+                    <button
+                        onClick={() => handleLogout()}
+                    >
                         <i className='bx bx-log-out' ></i>
                         Logout
-                    </Link>
+                    </button>
                 </li>
             </ul>
         </div>
