@@ -39,7 +39,7 @@ function Cart() {
 
     const API_URL = 'http://tums-essay-be.shop/api/invoices';
 
-    const createInvoice = (data) => {
+    const createInvoice = async (data) => {
         let option = {
             method: 'POST',
             headers: {
@@ -58,7 +58,7 @@ function Cart() {
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
     }
 
-    function handleSubmit(placeOrder) {
+    const handleSubmit = async (placeOrder) => {
         // Khi su dung de API thi o day se goi den ham gui len API ban feedback
         let customerName, phone, email, city, district, ward, address;
         ({ customerName, phone, email, city, district, ward, address } = placeOrder);
@@ -69,7 +69,7 @@ function Cart() {
                 total_invoice: total,
                 products: productList
             }
-            createInvoice(data);
+            await createInvoice(data);
         } else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
