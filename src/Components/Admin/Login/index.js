@@ -40,7 +40,7 @@ function Login({ setToken }) {
                         <p className={clsx(styles.error)}>
                             {error}
                             <button onClick={() => setError(false)}>
-                                <i class='bx bx-x' ></i>
+                                <i className='bx bx-x' ></i>
                             </button>
                         </p>
                     }

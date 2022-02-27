@@ -12,7 +12,7 @@ function Sidebar() {
     return (
         <div className={clsx(styles.sidebar_container)}>
             <div className={clsx(styles.sidebar_header)}>
-                SMUT Shop
+                <Link to={'/'}>SMUT Shop</Link>
             </div>
             <ul>
                 <li>

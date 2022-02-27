@@ -61,7 +61,7 @@ function Product() {
             selector: () => {
                 return (
                     <button className={styles.btn}>
-                        <i class='bx bxs-edit-alt' ></i>
+                        <i className='bx bxs-edit-alt' ></i>
                     </button>
                 )
             },
@@ -73,7 +73,7 @@ function Product() {
             selector: () => {
                 return (
                     <button className={styles.btn}>
-                        <i class='bx bx-x' ></i>
+                        <i className='bx bx-x' ></i>
                     </button>
                 )
             },
