@@ -24,7 +24,7 @@ function Contact() {
 
     const API_URL = 'http://tums-essay-be.shop/api/feedbacks';
 
-    const createFeedback = (data) => {
+    const createFeedback = async (data) => {
         let option = {
             method: 'POST',
             headers: {
@@ -39,7 +39,7 @@ function Contact() {
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
     }
 
-    const handleSendMess = (userInput) => {
+    const handleSendMess = async (userInput) => {
         // Khi su dung de API thi o day se goi den ham gui len API bang feedback
         let customerName, phone, email, message;
         ({ customerName, phone, email, message } = userInput);
@@ -48,7 +48,7 @@ function Contact() {
             let data = {
                 ...userInput
             }
-            createFeedback(data);
+            await createFeedback(data);
         } else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
