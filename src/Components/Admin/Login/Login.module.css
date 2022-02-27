@@ -87,7 +87,7 @@ p.error {
     margin: 10px 0;
 }
 
-p button {
+p.error button {
     border: none;
     text-align: center;
     cursor: pointer;

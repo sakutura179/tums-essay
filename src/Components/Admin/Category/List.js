@@ -3,7 +3,7 @@ import DataTable from 'react-data-table-component';
 import clsx from "clsx";
 
 import styles from './Category.module.css';
-import UpdateCategory from './Update';
+import Update from './Update';
 
 function List() {
     // Hien thi loading tren table
@@ -35,7 +35,7 @@ function List() {
     const handleOpenUpdate = (category) => {
         let renderThis = (
             <>
-                <UpdateCategory category={category} setShowForm={setShowForm} />
+                <Update category={category} setShowForm={setShowForm} />
             </>
         );
 
