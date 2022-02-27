@@ -9,3 +9,90 @@
 .btn i {
     margin-right: 5px;
 }
+
+.tabBtn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    transition: all 0.3s ease-in-out;
+}
+
+.tabBtn:hover {
+    background-color: darkorchid;
+    color: white;
+}
+
+/* From CSS */
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.form p.title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form label {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.formItem {
+    width: 70%;
+    outline: none;
+    padding: 0 16px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: inherit;
+}
+
+.formItem:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.form input {
+    height: 40px;
+}
+
+.form .btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form .btnContainer .btn {
+    width: fit-content;
+    padding: 14px 24px;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    border-radius: 5px;
+    border: 1px solid #121218;
+}
+
+.form .btnContainer .submitBtn {
+    background-color: #121218;
+    color: white;
+}
+
+.form .btnContainer .closeBtn {
+    background-color: white;
+    color: #121218;
+}
+
+.form .btn:hover {
+    background-color: rgba(18, 18, 24, 0.7);
+}

@@ -63,11 +63,17 @@
     padding: 14px 24px;
     font-size: 1rem;
     text-transform: capitalize;
-    border: #121218;
+    border: 1px solid #121218;
     background-color: #121218;
     outline: none;
     color: white;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+    border-radius: 5px;
+}
+
+.colItem .contactForm .submitBtn:hover {
+    background-color: rgba(18, 18, 24, 0.7);
 }
 
 @media screen and (max-width: 1023px) {
