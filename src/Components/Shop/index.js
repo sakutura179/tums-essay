@@ -39,8 +39,7 @@ function Shop() {
             filteredProducts = [];
         }
     } else {
-        filteredProducts = products.reverse();
-        console.log(filteredProducts);
+        filteredProducts = [...products].reverse();
     }
 
     let url = 'http://tums-essay-be.shop/';
