@@ -24,6 +24,10 @@
     margin-bottom: 0;
 }
 
+.card .cardImage {
+    min-height: 475px;
+}
+
 .card .cardImage img {
     width: 0;
     opacity: 0;
