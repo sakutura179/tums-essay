@@ -32,10 +32,11 @@ function List() {
     }
 
     const [showForm, setShowForm] = useState(false);
-    const handleOpenUpdate = (product) => {
+    const handleOpenUpdate = (data) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         let renderThis = (
             <>
-                <Update product={product} setShowForm={setShowForm} />
+                <Update data={data} setShowForm={setShowForm} />
             </>
         );
 

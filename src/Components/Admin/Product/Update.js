@@ -1,11 +1,12 @@
 import clsx from "clsx";
+import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 
 import styles from './Product.module.css';
 
-function Create() {
+function Update({ data, setShowForm }) {
     const [categories, setCategories] = useState();
     const [sizes, setSizes] = useState();
     useEffect(() => {
@@ -23,15 +24,12 @@ function Create() {
     }, []);
 
     const [product, setProduct] = useState({
-        cate_id: 1,
-        name: '',
-        price: 0,
-        size: [],
-        desc: '',
+        ...data,
+        size: data.size.map(item => item.size_id),
         image: []
     });
 
-    const createProduct = async (data) => {
+    const updateProduct = async (data, id) => {
         const formData = new FormData();
         formData.append('cate_id', data.cate_id);
         formData.append('name', data.name);
@@ -42,9 +40,9 @@ function Create() {
         for (let i = 0; i < data.image.length; i++)
             formData.append(`images[${i}]`, data.image[i]);
 
-        console.log(formData);
+        console.log(data);
 
-        fetch('http://tums-essay-be.shop/api/products', {
+        fetch(`http://tums-essay-be.shop/api/products/${id}?_method=PUT`, {
             method: 'POST',
             body: formData
         })
@@ -54,11 +52,11 @@ function Create() {
             .catch(err => alert(`An error occurred: ${err}`));
     }
 
-    const handleCreate = async (product) => {
+    const handleUpdate = async (product, id) => {
         let cate_id, name, price, size, desc, image;
         ({ cate_id, name, price, size, desc, image } = product);
         if (cate_id && name && price && size.length !== 0 && desc && image.length !== 0)
-            await createProduct(product);
+            await updateProduct(product, id);
         // console.log(product);
         else
             alert("Vui lòng nhập đầy đủ thông tin");
@@ -89,11 +87,12 @@ function Create() {
 
     return (
         <div className={clsx(styles.form)}>
-            <p className={clsx(styles.title)}>Create Product</p>
+            <p className={clsx(styles.title)}>Update Product</p>
             <label htmlFor="cate_id">Category</label>
             <select
                 id="cate_id"
                 name="cate_id"
+                value={product.cate_id}
                 onChange={e => setProduct({ ...product, size: [], cate_id: e.target.value })}
                 className={clsx(styles.formItem)}
                 style={{ 'textTransform': 'capitalize' }}
@@ -158,6 +157,7 @@ function Create() {
                     onReady={(editor) => {
                         // You can store the "editor" and use when it is needed.
                         // console.log('Editor is ready to use!', editor);
+                        editor.setData(product.desc);
                     }}
                     onChange={(event, editor) => {
                         const data = editor.getData();
@@ -180,13 +180,23 @@ function Create() {
             <div className={styles.btnContainer}>
                 <button
                     className={clsx(styles.btn, styles.submitBtn)}
-                    onClick={() => handleCreate(product)}
+                    onClick={() => handleUpdate(product, product.product_id)}
                 >
-                    Create
+                    Update
+                </button>
+                <button
+                    className={clsx(styles.btn, styles.closeBtn)}
+                    onClick={() => setShowForm(false)}>
+                    Close
                 </button>
             </div>
         </div>
     );
 }
 
-export default Create;
+Update.propTypes = {
+    data: PropTypes.object.isRequired,
+    setShowForm: PropTypes.func.isRequired
+}
+
+export default Update;
