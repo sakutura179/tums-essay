@@ -34,7 +34,8 @@
     transition: opacity 1s ease;
 }
 
-.card .cardImage .img1 {
+.card .cardImage .img1,
+.card .cardImage .img {
     width: 100%;
     opacity: 1;
 }

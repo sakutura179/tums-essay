@@ -68,16 +68,26 @@ function Shop() {
                                                 <div className={clsx(styles.card)}>
                                                     <div className={clsx(styles.cardImage)}>
                                                         <Link to={`/shop/${product.slug}`}>
-                                                            <img
-                                                                src={url + product.image[0].path}
-                                                                alt={product.slug}
-                                                                className={clsx(styles.img1)}
-                                                            />
-                                                            <img
-                                                                src={url + product.image[1].path}
-                                                                alt={product.slug}
-                                                                className={clsx(styles.img2)}
-                                                            />
+                                                            {product.image[1] ? (
+                                                                <>
+                                                                    <img
+                                                                        src={url + product.image[0].path}
+                                                                        alt={product.slug}
+                                                                        className={clsx(styles.img1)}
+                                                                    />
+                                                                    <img
+                                                                        src={url + product.image[1].path}
+                                                                        alt={product.slug}
+                                                                        className={clsx(styles.img2)}
+                                                                    />
+                                                                </>
+                                                            ) : (
+                                                                <img
+                                                                    src={url + product.image[0].path}
+                                                                    alt={product.slug}
+                                                                    className={clsx(styles.img)}
+                                                                />
+                                                            )}
                                                         </Link>
                                                     </div>
                                                     <div className={clsx(styles.cardTitle)}>
