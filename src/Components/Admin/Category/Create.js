@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 import styles from './Category.module.css';
+import { validCateName } from "../../../Utils/RegEx";
 
 function Create() {
     const [cateName, setCateName] = useState('');
@@ -28,9 +29,19 @@ function Create() {
             .catch(err => alert(`An error occurred: ${err}`));
     }
 
+    const [cateError, setCateError] = useState(false);
+
     const handleCreate = async (cateName) => {
-        if (cateName)
-            await createCategory({ cateName });
+        if (cateName) {
+            let valid = validCateName.test(cateName);
+            if (!valid)
+                setCateError(true);
+            else
+                setCateError(false);
+
+            if (valid)
+                await createCategory({ cateName });
+        }
         else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
@@ -38,6 +49,16 @@ function Create() {
     return (
         <div className={clsx(styles.form)}>
             <p className={clsx(styles.title)}>Create Category</p>
+            {cateError && (
+                <div className={styles.alertContainer}>
+                    {cateError && <p>- Category name is invalid</p>}
+                    <button onClick={() => {
+                        setCateError(false);
+                    }}>
+                        <i className='bx bx-x' ></i>
+                    </button>
+                </div>
+            )}
             <label htmlFor="cateName">Name</label>
             <input
                 type="text"

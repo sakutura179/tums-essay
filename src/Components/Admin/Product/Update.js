@@ -5,6 +5,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 
 import styles from './Product.module.css';
+import { validProductName } from "../../../Utils/RegEx";
 
 function Update({ data, setShowForm }) {
     const [categories, setCategories] = useState();
@@ -60,12 +61,29 @@ function Update({ data, setShowForm }) {
             .catch(err => alert(`An error occurred: ${err}`));
     }
 
+    const [productError, setProductError] = useState(false);
+    const [priceError, setPriceError] = useState(false);
+
     const handleUpdate = async (product, id) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         let cate_id, name, price, size, desc, image;
         ({ cate_id, name, price, size, desc, image } = product);
-        if (cate_id && name && price && size.length !== 0 && desc && image.length !== 0)
-            await updateProduct(product, id);
-        // console.log(product);
+        if (cate_id && name && price && size.length !== 0 && desc && image.length !== 0) {
+            let valid = {
+                name: validProductName.test(name),
+                price: price > 0
+            };
+            if (!valid.name)
+                setProductError(true);
+            else
+                setProductError(false);
+            if (!valid.price)
+                setPriceError(true);
+            else
+                setPriceError(false);
+            if (valid.name && valid.price)
+                await updateProduct(product, id);
+        }
         else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
@@ -96,6 +114,26 @@ function Update({ data, setShowForm }) {
     return (
         <div className={clsx(styles.form)}>
             <p className={clsx(styles.title)}>Update Product</p>
+            {(productError || priceError) && (
+                <div className={styles.alertContainer}>
+                    {productError &&
+                        <p>
+                            - Product name is invalid (Only contain numbers, normal characters and  ~ ! @ # $ % & * . - _ | /)
+                        </p>
+                    }
+                    {priceError &&
+                        <p>
+                            - Price is invalid (Only contain numbers and must be greater than 0)
+                        </p>
+                    }
+                    <button onClick={() => {
+                        setProductError(false);
+                        setPriceError(false);
+                    }}>
+                        <i className='bx bx-x' ></i>
+                    </button>
+                </div>
+            )}
             <label htmlFor="cate_id">Category</label>
             <select
                 id="cate_id"

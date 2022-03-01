@@ -6,6 +6,7 @@ import NavBar from '../NavBar';
 import styles from './Cart.module.css';
 import { currencyFormat } from '../../Utils/NumberFormat';
 import Header from "../Header";
+import { validEmail, validPhoneNumber } from '../../Utils/RegEx';
 
 function Cart() {
     const { setHeaderColor } = useContext(Context);
@@ -58,18 +59,36 @@ function Cart() {
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
     }
 
+    const [emailErr, setEmailErr] = useState(false);
+    const [phoneErr, setPhoneErr] = useState(false);
+
     const handleSubmit = async (placeOrder) => {
         // Khi su dung de API thi o day se goi den ham gui len API ban feedback
         let customerName, phone, email, city, district, ward, address;
         ({ customerName, phone, email, city, district, ward, address } = placeOrder);
         if (customerName && phone && email && city && district && ward && address) {
-            // console.log(placeOrder);
-            let data = {
-                ...placeOrder,
-                total_invoice: total,
-                products: productList
+            let valid = {
+                email: validEmail.test(email),
+                phone: validPhoneNumber.test(phone)
             }
-            await createInvoice(data);
+            if (!valid.email)
+                setEmailErr(true);
+            else
+                setEmailErr(false);
+            if (!valid.phone)
+                setPhoneErr(true);
+            else
+                setPhoneErr(false);
+
+            if (valid.email && valid.phone) {
+                // console.log('success');
+                let data = {
+                    ...placeOrder,
+                    total_invoice: total,
+                    products: productList
+                }
+                await createInvoice(data);
+            }
         } else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
@@ -92,6 +111,18 @@ function Cart() {
                                                 <p className={clsx(styles.title)}>
                                                     Thanh toán và giao hàng
                                                 </p>
+                                                {(emailErr || phoneErr) && (
+                                                    <div className={styles.alertContainer}>
+                                                        {emailErr && <p>- Email is invalid</p>}
+                                                        {phoneErr && <p>- Phone is invalid</p>}
+                                                        <button onClick={() => {
+                                                            setEmailErr(false);
+                                                            setPhoneErr(false);
+                                                        }}>
+                                                            <i className='bx bx-x' ></i>
+                                                        </button>
+                                                    </div>
+                                                )}
                                                 <div className={styles.paymentForm}>
                                                     <label htmlFor="customerName">họ và tên</label>
                                                     <input

@@ -5,6 +5,7 @@ import { Context } from '../Store';
 import NavBar from '../NavBar';
 import styles from "./Contact.module.css"
 import Header from "../Header";
+import { validEmail, validPhoneNumber } from '../../Utils/RegEx';
 
 function Contact() {
     const { setHeaderColor } = useContext(Context);
@@ -39,16 +40,35 @@ function Contact() {
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
     }
 
+    const [emailErr, setEmailErr] = useState(false);
+    const [phoneErr, setPhoneErr] = useState(false);
+
     const handleSendMess = async (userInput) => {
         // Khi su dung de API thi o day se goi den ham gui len API bang feedback
         let customerName, phone, email, message;
         ({ customerName, phone, email, message } = userInput);
         if (customerName && phone && email && message) {
-            console.log(userInput);
-            let data = {
-                ...userInput
+            let valid = {
+                email: validEmail.test(email),
+                phone: validPhoneNumber.test(phone)
             }
-            await createFeedback(data);
+            if (!valid.email)
+                setEmailErr(true);
+            else
+                setEmailErr(false);
+            if (!valid.phone)
+                setPhoneErr(true);
+            else
+                setPhoneErr(false);
+
+            if (valid.email && valid.phone) {
+                console.log(userInput);
+                let data = {
+                    ...userInput
+                }
+                await createFeedback(data);
+            }
+
         } else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
@@ -69,6 +89,18 @@ function Contact() {
                                     <p>giờ mở cửa: 12h12 - 12h12 tất cả các ngày trong tuần</p>
                                     <p>hotline: 0945xxx1212</p>
                                 </div>
+                                {(emailErr || phoneErr) && (
+                                    <div className={styles.alertContainer}>
+                                        {emailErr && <p>- Email is invalid</p>}
+                                        {phoneErr && <p>- Phone is invalid</p>}
+                                        <button onClick={() => {
+                                            setEmailErr(false);
+                                            setPhoneErr(false);
+                                        }}>
+                                            <i className='bx bx-x' ></i>
+                                        </button>
+                                    </div>
+                                )}
                                 <div className={styles.contactForm}>
                                     <label htmlFor="customerName">name</label>
                                     <input

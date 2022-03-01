@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 
 import styles from './Category.module.css';
+import { validCateName } from "../../../Utils/RegEx";
 
 function Update({ category, setShowForm }) {
     const [cateName, setCateName] = useState(category.name);
@@ -29,9 +30,19 @@ function Update({ category, setShowForm }) {
             .catch(err => alert(`An error occurred: ${err}`));
     }
 
+    const [cateError, setCateError] = useState(false);
+
     const handleUpdate = async (cateName, id) => {
-        if (cateName)
-            await updateCategory({ cateName }, id);
+        if (cateName) {
+            let valid = validCateName.test(cateName);
+            if (!valid)
+                setCateError(true);
+            else
+                setCateError(false);
+
+            if (valid)
+                await updateCategory({ cateName }, id);
+        }
         else
             alert("Vui lòng nhập đầy đủ thông tin");
     }
@@ -39,6 +50,16 @@ function Update({ category, setShowForm }) {
     return (
         <div className={clsx(styles.form)}>
             <p className={clsx(styles.title)}>Update Category</p>
+            {cateError && (
+                <div className={styles.alertContainer}>
+                    {cateError && <p>- Category name is invalid</p>}
+                    <button onClick={() => {
+                        setCateError(false);
+                    }}>
+                        <i className='bx bx-x' ></i>
+                    </button>
+                </div>
+            )}
             <label htmlFor="cateName">Name</label>
             <input
                 type="text"
