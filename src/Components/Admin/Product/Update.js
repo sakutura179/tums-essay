@@ -47,8 +47,16 @@ function Update({ data, setShowForm }) {
             body: formData
         })
             .then(res => res.json())
-            .then(data => alert(data.message))
-            .then(() => window.location.href = '/admin/product')
+            .then(fetchData => {
+                if (fetchData.message !== false) {
+                    alert(fetchData.message);
+                    return true;
+                } else {
+                    alert(fetchData.errors.name[0]);
+                    return false;
+                }
+            })
+            .then(isOke => isOke ? window.location.href = '/admin/product' : null)
             .catch(err => alert(`An error occurred: ${err}`));
     }
 

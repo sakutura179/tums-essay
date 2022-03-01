@@ -15,8 +15,16 @@ function Create() {
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(fetchData => alert(fetchData.message))
-            .then(() => window.location.href = '/admin/category')
+            .then(fetchData => {
+                if (fetchData.message !== false) {
+                    alert(fetchData.message);
+                    return true;
+                } else {
+                    alert(fetchData.errors.cateName[0]);
+                    return false;
+                }
+            })
+            .then(isOke => isOke ? window.location.href = '/admin/category' : null)
             .catch(err => alert(`An error occurred: ${err}`));
     }
 
