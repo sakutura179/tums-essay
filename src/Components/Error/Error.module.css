@@ -1,0 +1,47 @@
+.local_col {
+    height: 100vh;
+}
+
+.error_image {
+    height: 100vh;
+    background-image: url('../../assets/background/404.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.error_info {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.error_info p {
+    font-weight: bold;
+    user-select: none;
+}
+
+.error_info p.error {
+    font-size: 180px;
+}
+
+.error_info p.info {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.error_info a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: #121218;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+}
