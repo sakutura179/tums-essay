@@ -71,14 +71,15 @@ function List() {
             sortable: true
         },
         {
-            name: 'Size',
+            name: 'Size and Quantity',
             selector: row => {
                 let sizes = '';
                 row.size.forEach(element => {
-                    sizes += element.name + ' ';
+                    sizes += ` Size: ${element.name} - SL Tồn: ${element.pivot.quantity} `;
                 });
                 return sizes;
-            }
+            },
+            wrap: true
         },
         {
             name: 'Update',
