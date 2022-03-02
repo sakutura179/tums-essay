@@ -100,6 +100,7 @@ function List() {
         <>
             {showForm}
             <DataTable
+                fixedHeader
                 columns={columns}
                 data={categories}
                 pagination

@@ -61,6 +61,7 @@ function Feedback() {
             <div className={clsx('adminContent')}>
                 <h1>Feedback List</h1>
                 <DataTable
+                    fixedHeader
                     columns={columns}
                     data={feedbacks}
                     pagination
