@@ -14,7 +14,7 @@ function Invoice() {
     useEffect(() => {
         fetch(productAPI)
             .then(res => res.json())
-            .then(fetchData => setInvoices(fetchData))
+            .then(fetchData => setInvoices(fetchData.data))
             .then(() => setPending(false))
             .catch(err => console.log(err))
     }, []);
@@ -41,27 +41,38 @@ function Invoice() {
         {
             name: 'Email',
             selector: row => row.email,
-            grow: 2,
+            width: '200px',
             wrap: true
         },
         {
             name: 'Address',
             selector: row => `${row.address}, ${row.ward}, ${row.district}, ${row.city}`,
-            grow: 3,
+            width: '250px',
             wrap: true
         },
         {
             name: 'Note',
             selector: row => row.note,
-            grow: 3,
+            width: '250px',
+            wrap: true
+        },
+        {
+            name: 'Product List',
+            selector: row => {
+                let content = '';
+                row.products.forEach(element => {
+                    content += `| ${element.name} - SL: ${element.pivot.quantity} |`;
+                });
+                console.log(content);
+                return content;
+            },
+            width: '350px',
             wrap: true
         },
         {
             name: 'Total (VNĐ)',
             selector: row => row.total_invoice,
             sortable: true,
-            grow: 2,
-            wrap: true
         }
     ];
 
@@ -76,6 +87,7 @@ function Invoice() {
             <div className={clsx('adminContent')}>
                 <h1>Invoice List</h1>
                 <DataTable
+                    fixedHeader
                     columns={columns}
                     data={invoices}
                     pagination
