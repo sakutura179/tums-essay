@@ -22,6 +22,7 @@
 .error_info p {
     font-weight: bold;
     user-select: none;
+    text-align: center;
 }
 
 .error_info p.error {
