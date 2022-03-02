@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container .item {
+    width: 45%;
+    height: 150px;
+    margin: 12px;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    user-select: none;
+}
+
+.container .item p {
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.container .item h2 {
+    font-size: 30px;
+}
+
+.container .item.item1 {
+    background-color: #4975e9;
+}
+
+.container .item.item2 {
+    background-color: #7dc6fc;
+}
+
+.container .item.item3 {
+    background-color: #86d1b4;
+}
+
+.container .item.item4 {
+    background-color: #9e71cf;
+}

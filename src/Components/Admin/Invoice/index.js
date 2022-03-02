@@ -9,10 +9,10 @@ import Sidebar from "../Sidebar";
 function Invoice() {
     const [pending, setPending] = useState(true);
     const [invoices, setInvoices] = useState([]);
-    const productAPI = 'http://tums-essay-be.shop/api/invoices';
+    const invoiceAPI = 'http://tums-essay-be.shop/api/invoices';
 
     useEffect(() => {
-        fetch(productAPI)
+        fetch(invoiceAPI)
             .then(res => res.json())
             .then(fetchData => setInvoices(fetchData.data))
             .then(() => setPending(false))
