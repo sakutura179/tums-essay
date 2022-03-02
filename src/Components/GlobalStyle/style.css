@@ -2,6 +2,16 @@
     padding-top: 90px;
 }
 
+/* admin */
+
+.support {
+    display: block;
+}
+
+.unsupport {
+    display: none;
+}
+
 .adminContent {
     width: 80%;
     position: absolute;
@@ -36,4 +46,32 @@
 
 *::-webkit-scrollbar-track {
     background-color: rgba(200, 200, 200, .5);
+}
+
+/* Responesive screen */
+@media screen and (max-width: 1023px) {
+    .support {
+        display: none;
+    }
+
+    .unsupport {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+        user-select: none;
+        background-image: url('../../assets/background/404.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        text-shadow: 0 0 5px rgba(0, 0, 0, .75);
+    }
+
+    .unsupport p {
+        text-align: center;
+    }
 }

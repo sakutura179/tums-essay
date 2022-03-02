@@ -83,17 +83,23 @@ function Invoice() {
 
     return (
         <CheckToken>
-            <Sidebar />
-            <div className={clsx('adminContent')}>
-                <h1>Invoice List</h1>
-                <DataTable
-                    fixedHeader
-                    columns={columns}
-                    data={invoices}
-                    pagination
-                    paginationComponentOptions={paginationComponentOptions}
-                    progressPending={pending}
-                />
+            <div className={clsx('support')}>
+                <Sidebar />
+                <div className={clsx('adminContent')}>
+                    <h1>Invoice List</h1>
+                    <DataTable
+                        fixedHeader
+                        columns={columns}
+                        data={invoices}
+                        pagination
+                        paginationComponentOptions={paginationComponentOptions}
+                        progressPending={pending}
+                    />
+                </div>
+            </div>
+            <div className={clsx('unsupport')}>
+                <p>Sorry, your device is unsupported.</p>
+                <p>Please use PC to access this page.</p>
             </div>
         </CheckToken>
     )

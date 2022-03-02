@@ -12,23 +12,29 @@ function Product() {
 
     return (
         <CheckToken>
-            <Sidebar />
-            <div className={clsx('adminContent')}>
-                <h1>Product List</h1>
-                <button
-                    className={clsx(styles.tabBtn)}
-                    onClick={() => setTab('list')}
-                >
-                    List
-                </button>
-                <button
-                    className={clsx(styles.tabBtn)}
-                    onClick={() => setTab('create')}
-                >
-                    Create
-                </button>
-                {tab === 'list' && <List />}
-                {tab === 'create' && <Create />}
+            <div className={clsx('support')}>
+                <Sidebar />
+                <div className={clsx('adminContent')}>
+                    <h1>Product List</h1>
+                    <button
+                        className={clsx(styles.tabBtn)}
+                        onClick={() => setTab('list')}
+                    >
+                        List
+                    </button>
+                    <button
+                        className={clsx(styles.tabBtn)}
+                        onClick={() => setTab('create')}
+                    >
+                        Create
+                    </button>
+                    {tab === 'list' && <List />}
+                    {tab === 'create' && <Create />}
+                </div>
+            </div>
+            <div className={clsx('unsupport')}>
+                <p>Sorry, your device is unsupported.</p>
+                <p>Please use PC to access this page.</p>
             </div>
         </CheckToken>
     )

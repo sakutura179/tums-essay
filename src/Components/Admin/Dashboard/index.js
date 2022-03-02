@@ -59,27 +59,33 @@ function Dashboard() {
 
     return (
         <CheckToken>
-            <Sidebar />
-            <div className={clsx('adminContent')}>
-                <h1>Admin's Dashboard</h1>
-                <div className={clsx(styles.container)}>
-                    <div className={clsx(styles.item, styles.item1)}>
-                        <p>Total income</p>
-                        <h2>{getIncome()}</h2>
-                    </div>
-                    <div className={clsx(styles.item, styles.item2)}>
-                        <p>Total income in {getMonthName()}</p>
-                        <h2>{getIncomeInMonth()}</h2>
-                    </div>
-                    <div className={clsx(styles.item, styles.item3)}>
-                        <p>Total Order</p>
-                        <h2>{getOrder()}</h2>
-                    </div>
-                    <div className={clsx(styles.item, styles.item4)}>
-                        <p>Total Order in {getMonthName()}</p>
-                        <h2>{getOrderInMonth()}</h2>
+            <div className={clsx('support')}>
+                <Sidebar />
+                <div className={clsx('adminContent')}>
+                    <h1>Admin's Dashboard</h1>
+                    <div className={clsx(styles.container)}>
+                        <div className={clsx(styles.item, styles.item1)}>
+                            <p>Total income</p>
+                            <h2>{getIncome()}</h2>
+                        </div>
+                        <div className={clsx(styles.item, styles.item2)}>
+                            <p>Total income in {getMonthName()}</p>
+                            <h2>{getIncomeInMonth()}</h2>
+                        </div>
+                        <div className={clsx(styles.item, styles.item3)}>
+                            <p>Total Order</p>
+                            <h2>{getOrder()}</h2>
+                        </div>
+                        <div className={clsx(styles.item, styles.item4)}>
+                            <p>Total Order in {getMonthName()}</p>
+                            <h2>{getOrderInMonth()}</h2>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div className={clsx('unsupport')}>
+                <p>Sorry, your device is unsupported.</p>
+                <p>Please use PC to access this page.</p>
             </div>
         </CheckToken>
     )
