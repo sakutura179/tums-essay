@@ -1,4 +1,4 @@
-This project is used for my essay project in university. The project is a e-commerce web application using React library for Front-end and using Laravel framework for API Back-end server.
+This project is used for my essay project in university. This project is a e-commerce web shop using React library for Front-end and Laravel framework for API Back-end server.
 
 Everything in this project is used for learning purpose. NOT FOR COMMERCIAL USE.
 
