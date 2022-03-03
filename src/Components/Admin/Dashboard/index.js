@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useState, useEffect } from 'react';
 import { currencyFormat } from "../../../Utils/NumberFormat";
+import { Helmet } from 'react-helmet-async';
 
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
@@ -59,6 +60,11 @@ function Dashboard() {
 
     return (
         <CheckToken>
+            <Helmet>
+                <title>
+                    Admin's Dashboard - SMUT Clothing
+                </title>
+            </Helmet>
             <div className={clsx('support')}>
                 <Sidebar />
                 <div className={clsx('adminContent')}>

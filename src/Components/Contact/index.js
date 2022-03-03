@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 import { Context } from '../Store';
 import NavBar from '../NavBar';
@@ -75,6 +76,11 @@ function Contact() {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    Contact - SMUT Clothing
+                </title>
+            </Helmet>
             <Header />
             <div className={clsx('container')}>
                 <div className={clsx('grid wide')}>

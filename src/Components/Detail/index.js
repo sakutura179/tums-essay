@@ -2,6 +2,7 @@ import { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { Markup } from 'interweave';
+import { Helmet } from 'react-helmet-async';
 
 import NavBar from '../NavBar';
 import { Context } from '../Store'
@@ -218,6 +219,11 @@ function Detail() {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    {product.name} - SMUT Clothing
+                </title>
+            </Helmet>
             <Header />
             <div className={clsx('container')}>
                 <div className={clsx('grid wide')}>

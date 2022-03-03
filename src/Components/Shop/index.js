@@ -4,6 +4,7 @@ import {
     useEffect
 } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 import { Context } from '../Store';
 import NavBar from '../NavBar';
@@ -20,11 +21,16 @@ function Shop() {
     const { slug } = useParams();
     let filteredProducts;
     if (slug) {
+        var cateName;
         let cateID = categories.find(category => {
-            console.log(category.slug, slug);
-            return category.slug === slug;
+            // console.log(category.slug, slug);
+            if (category.slug === slug) {
+                cateName = category.name;
+                return true;
+            }
+            return false;
         });
-        console.log(cateID);
+        // console.log(cateID);
         if (cateID) {
             cateID = cateID.cate_id;
             filteredProducts = products.filter(product => product.cate_id === cateID);
@@ -46,6 +52,17 @@ function Shop() {
 
     return (
         <>
+            <Helmet>
+                {slug ? (
+                    <title>
+                        {cateName.toUpperCase()} - SMUT Clothing
+                    </title>
+                ) : (
+                    <title>
+                        Products - SMUT Clothing
+                    </title>
+                )}
+            </Helmet>
             <Header />
             <div className={clsx('container')}>
                 <div className={clsx('grid wide')}>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
+import { Helmet } from 'react-helmet-async';
 
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
@@ -12,6 +13,11 @@ function Product() {
 
     return (
         <CheckToken>
+            <Helmet>
+                <title>
+                    Product Management - SMUT Clothing
+                </title>
+            </Helmet>
             <div className={clsx('support')}>
                 <Sidebar />
                 <div className={clsx('adminContent')}>

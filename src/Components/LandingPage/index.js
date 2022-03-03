@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import clsx from 'clsx';
 import { useContext, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 import { Context } from '../Store';
 import styles from './LandingPage.module.css'
@@ -15,6 +16,11 @@ function LandingPage() {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    SMUT Clothing
+                </title>
+            </Helmet>
             <Header />
             <div className={clsx(styles.container, styles.img1)}>
                 <div className={clsx('grid wide')}>

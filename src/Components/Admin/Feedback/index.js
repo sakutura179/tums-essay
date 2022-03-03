@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import DataTable from 'react-data-table-component';
+import { Helmet } from 'react-helmet-async';
 
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
@@ -57,6 +58,11 @@ function Feedback() {
 
     return (
         <CheckToken>
+            <Helmet>
+                <title>
+                    Feedback Management - SMUT Clothing
+                </title>
+            </Helmet>
             <div className={clsx('support')}>
                 <Sidebar />
                 <div className={clsx('adminContent')}>

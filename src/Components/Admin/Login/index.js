@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 import styles from './Login.module.css'
 
@@ -31,6 +32,11 @@ function Login({ setToken }) {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    Login - SMUT Clothing
+                </title>
+            </Helmet>
             <div className={clsx(styles.login_container)}>
                 <div className={clsx(styles.login_form)}>
                     <h1>Admin Login</h1>
