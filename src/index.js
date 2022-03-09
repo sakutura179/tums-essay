@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
-import './index.css';
+import './assets/boxicons-2.1.2/css/boxicons.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './Components/GlobalStyle';
