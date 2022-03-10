@@ -84,7 +84,7 @@ function Shop() {
                                             <div className={clsx('col l-4 m-6 s-6')} key={product.product_id}>
                                                 <div className={clsx(styles.card)}>
                                                     <div className={clsx(styles.cardImage)}>
-                                                        <Link to={`/tums-essay/shop/${product.slug}`}>
+                                                        <Link to={`/shop/${product.slug}`}>
                                                             {product.image[1] ? (
                                                                 <>
                                                                     <img
@@ -108,7 +108,7 @@ function Shop() {
                                                         </Link>
                                                     </div>
                                                     <div className={clsx(styles.cardTitle)}>
-                                                        <Link to={`/tums-essay/shop/${product.slug}`}>
+                                                        <Link to={`/shop/${product.slug}`}>
                                                             {product.name}
                                                         </Link>
                                                     </div>

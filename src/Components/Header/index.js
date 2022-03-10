@@ -29,7 +29,7 @@ function Header() {
         <div className={clsx(styles.nav)}>
             {/* PC and laptop header */}
             <header className={clsx(styles.pc)}>
-                <span className={clsx(styles.logo)}><Link to={'/tums-essay/'} style={{ color: headerColor }}>SMUT</Link></span>
+                <span className={clsx(styles.logo)}><Link to={'/'} style={{ color: headerColor }}>SMUT</Link></span>
                 <label
                     className={clsx(styles.cart)}
                     style={{ color: headerColor }}
@@ -49,7 +49,7 @@ function Header() {
                 <label htmlFor="nav-mobile-input" className={clsx(styles.navBarsBtn)} style={{ color: headerColor }}>
                     <i className='bx bx-menu'></i>
                 </label>
-                <span className={clsx(styles.logo)}><Link to={'/tums-essay/'} style={{ color: headerColor }}>SMUT</Link></span>
+                <span className={clsx(styles.logo)}><Link to={'/'} style={{ color: headerColor }}>SMUT</Link></span>
                 <label
                     htmlFor='inputCart'
                     className={clsx(styles.cart)}
@@ -123,7 +123,7 @@ function Header() {
                                 tiếp tục mua hàng
                             </label>
                             <Link
-                                to={'/tums-essay/cart'}
+                                to={'/cart'}
                                 className={clsx(styles.checkoutBtn, styles.btn)}
                             >
 
@@ -162,7 +162,7 @@ function Header() {
                 </label>
                 <ul className={clsx(styles.navBar)}>
                     <li className={clsx(styles.navItem)}>
-                        <Link to={'/tums-essay/shop'}>Shop</Link>
+                        <Link to={'/shop'}>Shop</Link>
                         {/* use MAP here to render shop categories */}
                         <ul className={clsx(styles.childNavBar)}>
                             {categories.map(cate => (
@@ -170,13 +170,13 @@ function Header() {
                                     key={cate.cate_id}
                                     className={clsx(styles.childNavItem)}
                                 >
-                                    <Link to={`/tums-essay/category/${cate.slug}`}>{cate.name}</Link>
+                                    <Link to={`/category/${cate.slug}`}>{cate.name}</Link>
                                 </li>
                             ))}
                         </ul>
                     </li>
-                    <li className={clsx(styles.navItem)}><Link to={'/tums-essay/terms'}>Terms</Link></li>
-                    <li className={clsx(styles.navItem)}><Link to={'/tums-essay/contact'}>Contact</Link></li>
+                    <li className={clsx(styles.navItem)}><Link to={'/terms'}>Terms</Link></li>
+                    <li className={clsx(styles.navItem)}><Link to={'/contact'}>Contact</Link></li>
                 </ul>
             </div>
         </div>

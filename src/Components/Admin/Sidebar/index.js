@@ -15,34 +15,34 @@ function Sidebar() {
         {
             display: "Dashboard",
             icon: "dashboard",
-            path: "/tums-essay/admin/dashboard"
+            path: "/admin/dashboard"
         },
         {
             display: "Categories",
             icon: "category",
-            path: "/tums-essay/admin/category"
+            path: "/admin/category"
         },
         {
             display: "Products",
             icon: "t-shirt",
-            path: "/tums-essay/admin/product"
+            path: "/admin/product"
         },
         {
             display: "Invoices",
             icon: "spreadsheet",
-            path: "/tums-essay/admin/invoice"
+            path: "/admin/invoice"
         },
         {
             display: "Feedbacks",
             icon: "paper-plane",
-            path: "/tums-essay/admin/feedback"
+            path: "/admin/feedback"
         }
     ]
 
     return (
         <div className={clsx(styles.sidebar_container)}>
             <div className={clsx(styles.sidebar_header)}>
-                <Link to={'/tums-essay/'}>SMUT Shop</Link>
+                <Link to={'/'}>SMUT Shop</Link>
             </div>
             <ul>
                 {mainNav.map((item, index) => {
