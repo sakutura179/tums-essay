@@ -13,7 +13,6 @@
 
 # misc
 /note.txt
-/ckeditor5
 
 .DS_Store
 .env.local

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useState, useEffect, useContext } from "react";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import Editor from '@ckeditor/ckeditor5-build-classic';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
 
 import { Context } from '../../Store';
 import styles from './Product.module.css';
