@@ -63,7 +63,7 @@ function List() {
             name: 'Image',
             selector: row => {
                 return (
-                    <img src={'http://tums-essay-be.shop/' + row.image[0].path} alt={row.slug} width="100px" />
+                    <img src={'https://tums-essay-be.herokuapp.com/' + row.image[0].path} alt={row.slug} width="100px" />
                 );
             }
         },

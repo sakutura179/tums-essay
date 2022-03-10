@@ -62,7 +62,7 @@ function Detail() {
     const [currentImage, setCurrentImage] = useState(0);
 
     let renderThis;
-    let url = 'http://tums-essay-be.shop/';
+    let url = 'https://tums-essay-be.herokuapp.com/';
 
     if (product)
         renderThis = (
@@ -221,7 +221,7 @@ function Detail() {
         <>
             <Helmet>
                 <title>
-                    {product.name} - SMUT Clothing
+                    {product ? product.name : 'Product'} - SMUT Clothing
                 </title>
             </Helmet>
             <Header />
