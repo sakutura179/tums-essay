@@ -11,7 +11,7 @@ function NavBar() {
     return (
         <ul className={clsx(styles.navBar)}>
             <li className={clsx(styles.navItem)}>
-                <Link to={'/shop'}>Shop</Link>
+                <Link to={'/tums-essay/shop'}>Shop</Link>
                 {/* use MAP here to render shop categories */}
                 <ul className={clsx(styles.childNavBar)}>
                     {categories.map(cate => (
@@ -19,13 +19,13 @@ function NavBar() {
                             key={cate.cate_id}
                             className={clsx(styles.childNavItem)}
                         >
-                            <Link to={`/category/${cate.slug}`}>{cate.name}</Link>
+                            <Link to={`/tums-essay/category/${cate.slug}`}>{cate.name}</Link>
                         </li>
                     ))}
                 </ul>
             </li>
-            <li className={clsx(styles.navItem)}><Link to={'/terms'}>Terms</Link></li>
-            <li className={clsx(styles.navItem)}><Link to={'/contact'}>Contact</Link></li>
+            <li className={clsx(styles.navItem)}><Link to={'/tums-essay/terms'}>Terms</Link></li>
+            <li className={clsx(styles.navItem)}><Link to={'/tums-essay/contact'}>Contact</Link></li>
         </ul>
     )
 }

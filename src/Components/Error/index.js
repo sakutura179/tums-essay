@@ -28,7 +28,7 @@ function Error() {
                         <div className={clsx(styles.error_info)}>
                             <p className={styles.error}>404</p>
                             <p className={styles.info}>We couldn't find the page you're looking for</p>
-                            <Link to='/' className={styles.link}>Go back</Link>
+                            <Link to='/tums-essay/' className={styles.link}>Go back</Link>
                         </div>
                     </div>
                 </div>
