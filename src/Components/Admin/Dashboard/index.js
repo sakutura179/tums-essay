@@ -1,22 +1,24 @@
 import clsx from "clsx";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { currencyFormat } from "../../../Utils/NumberFormat";
 import { Helmet } from 'react-helmet-async';
 
+import { Context } from '../../Store';
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
 import styles from './Dashboard.module.css';
 
 function Dashboard() {
+    const { BE_URL } = useContext(Context);
     const [income, setIncome] = useState([]);
-    const incomeAPI = 'http://tums-essay-be.shop/api/income';
+    const incomeAPI = 'income';
 
     useEffect(() => {
-        fetch(incomeAPI)
+        fetch(BE_URL + incomeAPI)
             .then(res => res.json())
             .then(fetchData => setIncome(fetchData))
             .catch(err => console.log(err))
-    }, []);
+    }, [BE_URL]);
 
     const getIncome = () => {
         let total = 0;

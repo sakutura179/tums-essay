@@ -1,15 +1,17 @@
 import clsx from "clsx";
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { useState, useContext } from "react";
 
+import { Context } from '../../Store';
 import styles from './Category.module.css';
 import { validCateName } from "../../../Utils/RegEx";
 
 function Update({ category, setShowForm }) {
+    const { BE_URL } = useContext(Context);
     const [cateName, setCateName] = useState(category.name);
 
     const updateCategory = async (data, id) => {
-        fetch(`http://tums-essay-be.shop/api/categories/${id}`, {
+        fetch(`${BE_URL}categories/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

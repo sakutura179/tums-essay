@@ -10,7 +10,7 @@ import Header from "../Header";
 import { validEmail, validPhoneNumber } from '../../Utils/RegEx';
 
 function Cart() {
-    const { setHeaderColor } = useContext(Context);
+    const { setHeaderColor, BE_URL } = useContext(Context);
     useEffect(() => {
         setHeaderColor('black');
     });
@@ -39,8 +39,6 @@ function Cart() {
 
     const [payment, setPayment] = useState(initPayment);
 
-    const API_URL = 'http://tums-essay-be.shop/api/invoices';
-
     const createInvoice = async (data) => {
         let option = {
             method: 'POST',
@@ -50,7 +48,7 @@ function Cart() {
             body: JSON.stringify(data)
         }
 
-        fetch(API_URL, option)
+        fetch(BE_URL + 'invoices', option)
             .then(res => res.json())
             .then(data => alert(data.message))
             .then(() => {

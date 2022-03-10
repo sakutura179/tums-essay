@@ -1,14 +1,16 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
+import { Context } from '../../Store';
 import styles from './Category.module.css';
 import { validCateName } from "../../../Utils/RegEx";
 
 function Create() {
+    const { BE_URL } = useContext(Context);
     const [cateName, setCateName] = useState('');
 
     const createCategory = async (data) => {
-        fetch('http://tums-essay-be.shop/api/categories', {
+        fetch(BE_URL + 'categories', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

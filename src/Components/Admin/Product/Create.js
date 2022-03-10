@@ -1,27 +1,29 @@
 import clsx from "clsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 
+import { Context } from '../../Store';
 import styles from './Product.module.css';
 import { validProductName } from "../../../Utils/RegEx";
 
 function Create() {
+    const { BE_URL } = useContext(Context);
     const [categories, setCategories] = useState();
     const [sizes, setSizes] = useState();
     useEffect(() => {
         // get category list
-        fetch('http://tums-essay-be.shop/api/categories')
+        fetch(BE_URL + 'categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(err => console.log(err));
 
         // get size list
-        fetch('http://tums-essay-be.shop/api/sizes')
+        fetch(BE_URL + 'sizes')
             .then(res => res.json())
             .then(data => setSizes(data))
             .catch(err => console.log(err));
-    }, []);
+    }, [BE_URL]);
 
     const [product, setProduct] = useState({
         cate_id: 1,
@@ -45,7 +47,7 @@ function Create() {
 
         console.log(formData);
 
-        fetch('http://tums-essay-be.shop/api/products', {
+        fetch(BE_URL + 'products', {
             method: 'POST',
             body: formData
         })

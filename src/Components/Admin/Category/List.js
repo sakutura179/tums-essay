@@ -1,27 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import DataTable from 'react-data-table-component';
 import clsx from "clsx";
 
+import { Context } from '../../Store';
 import styles from './Category.module.css';
 import Update from './Update';
 
 function List() {
+    const { BE_URL } = useContext(Context);
     // Hien thi loading tren table
     const [pending, setPending] = useState(true);
     const [categories, setCategories] = useState([]);
-    const cateAPI = 'http://tums-essay-be.shop/api/categories';
+    const cateAPI = 'categories';
 
     useEffect(() => {
-        fetch(cateAPI)
+        fetch(BE_URL + cateAPI)
             .then(res => res.json())
             .then(data => setCategories(data))
             .then(() => setPending(false))
             .catch(err => console.log(err))
-    }, []);
+    }, [BE_URL]);
 
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this item?')) {
-            await fetch(`${cateAPI}/${id}`, {
+            await fetch(`${BE_URL + cateAPI}/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

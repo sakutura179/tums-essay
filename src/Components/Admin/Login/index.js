@@ -1,12 +1,13 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 
+import { Context } from '../../Store';
 import styles from './Login.module.css'
 
-async function loginUser(content) {
-    return fetch('http://tums-essay-be.shop/api/login', {
+async function loginUser(content, BE_URL) {
+    return fetch(BE_URL + 'login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,6 +17,7 @@ async function loginUser(content) {
         .then(res => res.json())
 }
 function Login({ setToken }) {
+    const { BE_URL } = useContext(Context);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
@@ -23,7 +25,7 @@ function Login({ setToken }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Gui data len server. Sau do nhan ve token
-        const token = await loginUser({ username, password });
+        const token = await loginUser({ username, password }, BE_URL);
         if (token.status === 'success')
             setToken(token);
         else

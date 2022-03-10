@@ -1,24 +1,26 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import DataTable from 'react-data-table-component';
 import { Helmet } from 'react-helmet-async';
 
+import { Context } from '../../Store';
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
 // import styles from './Invoice.module.css';
 
 function Invoice() {
+    const { BE_URL } = useContext(Context);
     const [pending, setPending] = useState(true);
     const [invoices, setInvoices] = useState([]);
-    const invoiceAPI = 'http://tums-essay-be.shop/api/invoices';
+    const invoiceAPI = 'invoices';
 
     useEffect(() => {
-        fetch(invoiceAPI)
+        fetch(BE_URL + invoiceAPI)
             .then(res => res.json())
             .then(fetchData => setInvoices(fetchData.data))
             .then(() => setPending(false))
             .catch(err => console.log(err))
-    }, []);
+    }, [BE_URL]);
 
     const columns = [
         {

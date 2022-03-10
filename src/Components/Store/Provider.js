@@ -12,23 +12,26 @@ function Provider({ children }) {
     // Pending variable
     const [pending, setPending] = useState(true);
 
-    const cateAPI = 'http://tums-essay-be.shop/api/categories';
-    const productAPI = 'http://tums-essay-be.shop/api/products';
+    const BE_URL = "https://tums-essay-be.herokuapp.com/api/";
+
+    const cateAPI = 'categories';
+    const productAPI = 'products';
 
     useEffect(() => {
-        fetch(productAPI)
+        fetch(BE_URL + productAPI)
             .then(res => res.json())
             .then(fetchData => setProducts(fetchData.data))
             .then(() => setPending(false))
         // Do o BE tra ve doi tuong co key la 'data' chua toan bo du lieu cua Products (su dung postman de test)
 
-        fetch(cateAPI)
+        fetch(BE_URL + cateAPI)
             .then(res => res.json())
             .then(data => setCategories(data))
             .then(() => setPending(false))
     }, []);
 
     const contextData = {
+        BE_URL,
         products,
         categories,
         headerColor,

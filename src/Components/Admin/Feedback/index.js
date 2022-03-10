@@ -1,24 +1,26 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import DataTable from 'react-data-table-component';
 import { Helmet } from 'react-helmet-async';
 
+import { Context } from '../../Store';
 import CheckToken from "../../CheckToken";
 import Sidebar from "../Sidebar";
 // import styles from './Feedback.module.css';
 
 function Feedback() {
+    const { BE_URL } = useContext(Context);
     const [pending, setPending] = useState(true);
     const [feedbacks, setFeedbacks] = useState([]);
-    const feedbackAPI = 'http://tums-essay-be.shop/api/feedbacks';
+    const feedbackAPI = 'feedbacks';
 
     useEffect(() => {
-        fetch(feedbackAPI)
+        fetch(BE_URL + feedbackAPI)
             .then(res => res.json())
             .then(fetchData => setFeedbacks(fetchData))
             .then(() => setPending(false))
             .catch(err => console.log(err))
-    }, []);
+    }, [BE_URL]);
 
     const columns = [
         {

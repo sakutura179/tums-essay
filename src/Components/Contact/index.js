@@ -9,7 +9,7 @@ import Header from "../Header";
 import { validEmail, validPhoneNumber } from '../../Utils/RegEx';
 
 function Contact() {
-    const { setHeaderColor } = useContext(Context);
+    const { setHeaderColor, BE_URL } = useContext(Context);
 
     useEffect(() => {
         setHeaderColor('black');
@@ -24,8 +24,6 @@ function Contact() {
 
     const [contact, setContact] = useState(initContact);
 
-    const API_URL = 'http://tums-essay-be.shop/api/feedbacks';
-
     const createFeedback = async (data) => {
         let option = {
             method: 'POST',
@@ -35,7 +33,7 @@ function Contact() {
             body: JSON.stringify(data)
         }
 
-        fetch(API_URL, option)
+        fetch(BE_URL + 'feedbacks', option)
             .then(() => alert('Đã gửi feedback thành công'))
             .then(() => window.location.reload())
             .catch(() => alert('Đã xảy ra lỗi. Vui lòng thử lại sau một vài phút'));
