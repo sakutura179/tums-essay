@@ -12,8 +12,8 @@ function Provider({ children }) {
     // Pending variable
     const [pending, setPending] = useState(true);
 
-    const BE_URL = "https://tums-essay-be.herokuapp.com/api/";
-    // const BE_URL = "http://tums-essay-be.shop/api/";
+    // const BE_URL = "https://tums-essay-be.herokuapp.com/api/";
+    const BE_URL = "http://tums-essay-be.shop/api/";
 
     const cateAPI = 'categories';
     const productAPI = 'products';
