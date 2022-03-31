@@ -62,7 +62,8 @@ function Detail() {
     const [currentImage, setCurrentImage] = useState(0);
 
     let renderThis;
-    let url = 'https://tums-essay-be.herokuapp.com/';
+    // let url = 'https://tums-essay-be.herokuapp.com/';
+    let url = "http://tums-essay-be.shop/";
 
     if (product)
         renderThis = (

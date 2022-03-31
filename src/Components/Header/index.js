@@ -23,7 +23,8 @@ function Header() {
         window.location.reload();
     }
 
-    let url = 'https://tums-essay-be.herokuapp.com/';
+    // let url = 'https://tums-essay-be.herokuapp.com/';
+    let url = "http://tums-essay-be.shop/";
 
     return (
         <div className={clsx(styles.nav)}>

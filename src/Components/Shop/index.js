@@ -48,14 +48,15 @@ function Shop() {
         filteredProducts = [...products].reverse();
     }
 
-    let url = 'https://tums-essay-be.herokuapp.com/';
+    // let url = 'https://tums-essay-be.herokuapp.com/';
+    let url = "http://tums-essay-be.shop/";
 
     return (
         <>
             <Helmet>
                 {slug ? (
                     <title>
-                        {cateName.toUpperCase()} - SMUT Clothing
+                        {cateName != null ? cateName.toUpperCase() : 'Category'} - SMUT Clothing
                     </title>
                 ) : (
                     <title>
