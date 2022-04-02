@@ -33,7 +33,7 @@ function Sidebar() {
             path: "/admin/invoice"
         },
         {
-            display: "Feedbacks",
+            display: "Feedback",
             icon: "paper-plane",
             path: "/admin/feedback"
         }
