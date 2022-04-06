@@ -21,7 +21,7 @@ function Category() {
             <div className={clsx('support')}>
                 <Sidebar />
                 <div className={clsx('adminContent')}>
-                    <h1>Category List</h1>
+                    <h1>Category Management</h1>
                     <button
                         className={clsx(styles.tabBtn)}
                         onClick={() => setTab('list')}

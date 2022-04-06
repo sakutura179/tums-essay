@@ -21,7 +21,7 @@ function Product() {
             <div className={clsx('support')}>
                 <Sidebar />
                 <div className={clsx('adminContent')}>
-                    <h1>Product List</h1>
+                    <h1>Product Management</h1>
                     <button
                         className={clsx(styles.tabBtn)}
                         onClick={() => setTab('list')}
