@@ -15,7 +15,13 @@
     margin: 0 auto;
 }
 
-/* Code danh cho mobile (khong can phai canh 2 le tren mobile) */
+/* Code danh cho mobile */
+@media screen and (max-width: 739px) {
+    .wide {
+        max-width: 304px;
+    }
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -182,7 +188,7 @@
 }
 
 /* Tablet without div */
-/* Neu < 740px thi se su dung class m, neu lon hon 1023 thi da co PC lo */
+/* Neu > 740px thi se su dung class m, neu lon hon 1023 thi da co PC lo */
 @media screen and (min-width: 740px) {
     .row {
         margin-left: -8px;
@@ -326,156 +332,6 @@
     }
 
     .m-o-11 {
-        margin-left: 91.666667%;
-    }
-}
-
-
-/* PC high res without wide div */
-/* Code nay se xu ly cho cac man hinh lon hon 1239px (van giong voi 1024 -> 1239) */
-@media screen and (min-width: 1113px) {
-    .row {
-        margin-left: -12px;
-        margin-right: -12px;
-    }
-
-    .col {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .l-0,
-    .l-1,
-    .l-2,
-    .l-2-4,
-    .l-3,
-    .l-4,
-    .l-5,
-    .l-6,
-    .l-7,
-    .l-8,
-    .l-9,
-    .l-10,
-    .l-11,
-    .l-12 {
-        display: block;
-    }
-
-    .l-0 {
-        display: none;
-    }
-
-    .l-1 {
-        flex: 0 0 8.333333%;
-        max-width: 8.333333%;
-    }
-
-    .l-2 {
-        flex: 0 0 16.666667%;
-        max-width: 16.666667%;
-    }
-
-    .l-2-4 {
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-
-    .l-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-
-    .l-4 {
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-    }
-
-    .l-5 {
-        flex: 0 0 41.666667%;
-        max-width: 41.666667%;
-    }
-
-    .l-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-
-    .l-7 {
-        flex: 0 0 58.333333%;
-        max-width: 58.333333%;
-    }
-
-    .l-8 {
-        flex: 0 0 66.666667%;
-        max-width: 66.666667%;
-    }
-
-    .l-9 {
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
-
-    .l-10 {
-        flex: 0 0 83.333333%;
-        max-width: 83.333333%;
-    }
-
-    .l-11 {
-        flex: 0 0 91.666667%;
-        max-width: 91.666667%;
-    }
-
-    .l-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    /* Column offset */
-    .l-o-1 {
-        margin-left: 8.333333%;
-    }
-
-    .l-o-2 {
-        margin-left: 16.666667%;
-    }
-
-    .l-o-2-4 {
-        margin-left: 20%;
-    }
-
-    .l-o-3 {
-        margin-left: 25%;
-    }
-
-    .l-o-4 {
-        margin-left: 33.333333%;
-    }
-
-    .l-o-5 {
-        margin-left: 41.666667%;
-    }
-
-    .l-o-6 {
-        margin-left: 50%;
-    }
-
-    .l-o-7 {
-        margin-left: 58.333333%;
-    }
-
-    .l-o-8 {
-        margin-left: 66.666667%;
-    }
-
-    .l-o-9 {
-        margin-left: 75%;
-    }
-
-    .l-o-10 {
-        margin-left: 83.333333%;
-    }
-
-    .l-o-11 {
         margin-left: 91.666667%;
     }
 }
@@ -630,6 +486,155 @@
     }
 
     .wide .l-o-11 {
+        margin-left: 91.666667%;
+    }
+}
+
+/* PC high res without wide div */
+/* Code nay se xu ly cho cac man hinh lon hon 1239px (van giong voi 1024 -> 1239) */
+@media screen and (min-width: 1113px) {
+    .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .col {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .l-0,
+    .l-1,
+    .l-2,
+    .l-2-4,
+    .l-3,
+    .l-4,
+    .l-5,
+    .l-6,
+    .l-7,
+    .l-8,
+    .l-9,
+    .l-10,
+    .l-11,
+    .l-12 {
+        display: block;
+    }
+
+    .l-0 {
+        display: none;
+    }
+
+    .l-1 {
+        flex: 0 0 8.333333%;
+        max-width: 8.333333%;
+    }
+
+    .l-2 {
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+
+    .l-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .l-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .l-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+
+    .l-5 {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+
+    .l-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .l-7 {
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+    }
+
+    .l-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+
+    .l-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .l-10 {
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+
+    .l-11 {
+        flex: 0 0 91.666667%;
+        max-width: 91.666667%;
+    }
+
+    .l-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* Column offset */
+    .l-o-1 {
+        margin-left: 8.333333%;
+    }
+
+    .l-o-2 {
+        margin-left: 16.666667%;
+    }
+
+    .l-o-2-4 {
+        margin-left: 20%;
+    }
+
+    .l-o-3 {
+        margin-left: 25%;
+    }
+
+    .l-o-4 {
+        margin-left: 33.333333%;
+    }
+
+    .l-o-5 {
+        margin-left: 41.666667%;
+    }
+
+    .l-o-6 {
+        margin-left: 50%;
+    }
+
+    .l-o-7 {
+        margin-left: 58.333333%;
+    }
+
+    .l-o-8 {
+        margin-left: 66.666667%;
+    }
+
+    .l-o-9 {
+        margin-left: 75%;
+    }
+
+    .l-o-10 {
+        margin-left: 83.333333%;
+    }
+
+    .l-o-11 {
         margin-left: 91.666667%;
     }
 }
